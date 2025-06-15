@@ -1,10 +1,3 @@
-function closeMaintenance() {
-    const overlay = document.getElementById('maintenanceOverlay');
-    if (overlay) {
-        overlay.style.display = 'none';
-    }
-}
-
 const maptiler = L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=drXsj04WIDowwjjOrinL', {
     tileSize: 512,
     zoomOffset: -1,
@@ -165,11 +158,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show default tab on load
     showTab('home-content');
 });
-    });
+
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.slice(1);
+    switchTab(`${hash}-content`);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure maintenance overlay is visible and prevent it from being closed
+    const overlay = document.getElementById('maintenanceOverlay');
+    if (overlay) {
+        overlay.style.display = 'flex';
+        overlay.style.zIndex = '99999';
+    }
+
+    // Disable all interactive elements behind the overlay
+    document.querySelector('.container').style.pointerEvents = 'none';
 });
-    window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.slice(1);
-        switchTab(`${hash}-content`);
-    });
-;
