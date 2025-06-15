@@ -121,46 +121,46 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
-// Simple tab switching functionality
+// Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active classes
-            tabs.forEach(t => t.classList.remove('active-tab'));
-            contents.forEach(c => c.classList.remove('active'));
+    function switchTab(tab) {
+        // Get the target content ID
+        const targetId = tab.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetId);
 
-            // Add active class to clicked tab
-            tab.classList.add('active-tab');
-
-            // Show corresponding content
-            const contentId = tab.getAttribute('data-tab');
-            const content = document.getElementById(contentId);
-            if (content) {
-                content.classList.add('active');
-            }
+        // Hide all content panels
+        contents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
         });
-    });
-});
+
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active-tab'));
+
+        // Show selected content and activate tab
+        if (targetContent) {
+            targetContent.style.display = 'block';
+            targetContent.classList.add('active');
+            tab.classList.add('active-tab');
         }
     }
 
     // Add click handlers
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            const tabId = tab.getAttribute('data-tab');
-            switchTab(tabId);
+            switchTab(tab);
         });
     });
 
-    // Handle initial load
-    const hash = window.location.hash.slice(1);
-    const initialTabId = hash ? `${hash}-content` : 'home-content';
-    switchTab(initialTabId);
-
-    // Handle hash changes
+    // Show home tab by default
+    const defaultTab = document.querySelector('[data-tab="home-content"]');
+    if (defaultTab) {
+        switchTab(defaultTab);
+    }
+});
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchTab(`${hash}-content`);
