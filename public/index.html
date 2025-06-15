@@ -34,7 +34,7 @@
             z-index: 100;
             position: relative;
         }
-        .nav-tabs a {
+        .nav-tabs button {
             padding: 8px 16px;
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
@@ -43,6 +43,8 @@
             cursor: pointer;
             user-select: none;
             -webkit-user-select: none;
+            border: none;
+            outline: none;
         }
         .nav-tabs .active-tab {
             background: #007bff;
@@ -137,17 +139,17 @@
                 <h1>EA - TwistcasterLive Media</h1>
             </div>
             <div class="nav-tabs" role="tablist">
-                <a href="#home" class="tab-link active-tab" data-tab="home-content" role="tab">Home</a>
-                <a href="#team" class="tab-link" data-tab="team-content" role="tab">The Weather Team</a>
-                <a href="#radar" class="tab-link" data-tab="radar-content" role="tab">Weather Radar</a>
-                <a href="#scanner" class="tab-link" data-tab="scanner-content" role="tab">Team Scanner</a>
-                <a href="#alerts" class="tab-link" data-tab="alerts-content" role="tab">Weather Alerts</a>
-                <a href="#outlook" class="tab-link" data-tab="outlook-content" role="tab">SPC Outlook</a>
-                <a href="#videos" class="tab-link" data-tab="videos-content" role="tab">Videos</a>
-                <a href="#stream" class="tab-link" data-tab="stream-content" role="tab">Live Stream</a>
-                <a href="#sponsors" class="tab-link" data-tab="sponsors-content" role="tab">Sponsors</a>
-                <a href="#shop" class="tab-link" data-tab="shop-content" role="tab">Shop</a>
-                <a href="#privacy" class="tab-link" data-tab="privacy-content" role="tab">Privacy Policy</a>
+                <button class="tab-link active-tab" data-tab="home-content" role="tab" aria-selected="true">Home</button>
+                <button class="tab-link" data-tab="team-content" role="tab">The Weather Team</button>
+                <button class="tab-link" data-tab="radar-content" role="tab">Weather Radar</button>
+                <button class="tab-link" data-tab="scanner-content" role="tab">Team Scanner</button>
+                <button class="tab-link" data-tab="alerts-content" role="tab">Weather Alerts</button>
+                <button class="tab-link" data-tab="outlook-content" role="tab">SPC Outlook</button>
+                <button class="tab-link" data-tab="videos-content" role="tab">Videos</button>
+                <button class="tab-link" data-tab="stream-content" role="tab">Live Stream</button>
+                <button class="tab-link" data-tab="sponsors-content" role="tab">Sponsors</button>
+                <button class="tab-link" data-tab="shop-content" role="tab">Shop</button>
+                <button class="tab-link" data-tab="privacy-content" role="tab">Privacy Policy</button>
             </div>
         </header>
         <!-- Home Content -->

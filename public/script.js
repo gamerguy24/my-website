@@ -124,45 +124,45 @@ setInterval(() => {
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
-
-    function switchToTab(targetId) {
-        // Hide all tabs
-        contents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
+    const panels = document.querySelectorAll('.tab-content');
+    
+    function switchTab(tabId) {
+        // Hide all panels
+        panels.forEach(panel => {
+            panel.style.display = 'none';
+            panel.classList.remove('active');
         });
-
-        // Remove active class from all tabs
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-        // Show and activate the selected tab
-        const selectedTab = document.getElementById(targetId);
-        const selectedTabLink = document.querySelector(`[data-tab="${targetId}"]`);
-
-        if (selectedTab && selectedTabLink) {
-            selectedTab.style.display = 'block';
-            selectedTab.classList.add('active');
-            selectedTabLink.classList.add('active-tab');
+        
+        // Deactivate all tabs
+        tabs.forEach(tab => {
+            tab.classList.remove('active-tab');
+            tab.setAttribute('aria-selected', 'false');
+        });
+        
+        // Show and activate the selected panel/tab
+        const panel = document.getElementById(tabId);
+        const tab = document.querySelector(`[data-tab="${tabId}"]`);
+        
+        if (panel && tab) {
+            panel.style.display = 'block';
+            panel.classList.add('active');
+            tab.classList.add('active-tab');
+            tab.setAttribute('aria-selected', 'true');
         }
     }
-
-    // Click handler for tabs
+    
+    // Add click listeners to tabs
     tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = tab.getAttribute('data-tab');
-            switchToTab(targetId);
-            history.pushState(null, null, `#${targetId.replace('-content', '')}`);
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            switchTab(tabId);
         });
     });
-
-    // Handle initial load and hash changes
-    const hash = window.location.hash.slice(1);
-    const initialTabId = hash ? `${hash}-content` : 'home-content';
-    switchToTab(initialTabId);
-
-    // Handle hash changes
+    
+    // Set initial tab
+    const defaultTab = 'home-content';
+    switchTab(defaultTab);
+});
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchToTab(`${hash}-content`);
