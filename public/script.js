@@ -170,17 +170,17 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const tabId = tab.getAttribute('data-tab');
             switchTab(tabId);
-        });
+        }, { passive: false });
     });
 
-    const hash = window.location.hash.substring(1);
+    const hash = window.location.hash.slice(1);
     switchTab(hash ? `${hash}-content` : 'home-content');
 
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchTab(hash ? `${hash}-content` : 'home-content');
     });
-});
 });
