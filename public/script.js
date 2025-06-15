@@ -144,8 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
+    let activeTab = null;
 
     function switchTab(targetId) {
+        if (activeTab === targetId) return;
+
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('active');
@@ -159,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newTab.style.display = 'block';
             newTab.classList.add('active');
             newTabLink.classList.add('active-tab');
+            activeTab = targetId;
             history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
         }
     }
@@ -173,14 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hash = window.location.hash.substring(1);
     switchTab(hash ? `${hash}-content` : 'home-content');
-});
-    });
-
-    const hash = window.location.hash.slice(1);
-    switchTab(hash ? `${hash}-content` : 'home-content');
 
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchTab(hash ? `${hash}-content` : 'home-content');
     });
+});
 });
