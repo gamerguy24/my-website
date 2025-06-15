@@ -121,6 +121,7 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
+// Core page functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the page loaded successfully
     console.log('Page loaded successfully');
@@ -131,17 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         img.loading = 'lazy';
     });
 
-    // Add simple analytics tracking (if needed)
-    function pageView() {
-        // Add your analytics code here
-        console.log('Page view recorded');
-    }
-
-    pageView();
-});
-
-// Tab switching functionality
-document.addEventListener('DOMContentLoaded', () => {
+    // Initialize tab switching
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
     let activeTab = null;
