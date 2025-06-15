@@ -18,11 +18,9 @@
     <style>
         .tab-content {
             display: none;
-            pointer-events: none;
         }
         .tab-content.active {
             display: block;
-            pointer-events: auto;
         }
         .nav-tabs {
             display: flex;
@@ -35,21 +33,21 @@
             position: relative;
         }
         .nav-tabs button {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
-            text-decoration: none;
+            border: none;
             border-radius: 4px;
             cursor: pointer;
-            user-select: none;
-            -webkit-user-select: none;
-            border: none;
-            outline: none;
+            margin: 0 5px;
+            transition: background 0.3s ease;
+        }
+        .nav-tabs button:hover {
+            background: rgba(0, 123, 255, 0.5);
         }
         .nav-tabs .active-tab {
             background: #007bff;
             color: white;
-            pointer-events: none;
         }
         .video-container {
             pointer-events: auto;
@@ -139,17 +137,17 @@
                 <h1>EA - TwistcasterLive Media</h1>
             </div>
             <div class="nav-tabs" role="tablist">
-                <button class="tab-link active-tab" data-tab="home-content" role="tab" aria-selected="true">Home</button>
-                <button class="tab-link" data-tab="team-content" role="tab">The Weather Team</button>
-                <button class="tab-link" data-tab="radar-content" role="tab">Weather Radar</button>
-                <button class="tab-link" data-tab="scanner-content" role="tab">Team Scanner</button>
-                <button class="tab-link" data-tab="alerts-content" role="tab">Weather Alerts</button>
-                <button class="tab-link" data-tab="outlook-content" role="tab">SPC Outlook</button>
-                <button class="tab-link" data-tab="videos-content" role="tab">Videos</button>
-                <button class="tab-link" data-tab="stream-content" role="tab">Live Stream</button>
-                <button class="tab-link" data-tab="sponsors-content" role="tab">Sponsors</button>
-                <button class="tab-link" data-tab="shop-content" role="tab">Shop</button>
-                <button class="tab-link" data-tab="privacy-content" role="tab">Privacy Policy</button>
+                <button type="button" class="tab-link active-tab" data-tab="home-content">Home</button>
+                <button type="button" class="tab-link" data-tab="team-content">The Weather Team</button>
+                <button type="button" class="tab-link" data-tab="radar-content">Weather Radar</button>
+                <button type="button" class="tab-link" data-tab="scanner-content">Team Scanner</button>
+                <button type="button" class="tab-link" data-tab="alerts-content">Weather Alerts</button>
+                <button type="button" class="tab-link" data-tab="outlook-content">SPC Outlook</button>
+                <button type="button" class="tab-link" data-tab="videos-content">Videos</button>
+                <button type="button" class="tab-link" data-tab="stream-content">Live Stream</button>
+                <button type="button" class="tab-link" data-tab="sponsors-content">Sponsors</button>
+                <button type="button" class="tab-link" data-tab="shop-content">Shop</button>
+                <button type="button" class="tab-link" data-tab="privacy-content">Privacy Policy</button>
             </div>
         </header>
         <!-- Home Content -->
@@ -547,5 +545,7 @@
     <script src="weather.js" defer></script>
     <script src="scanner.js" defer></script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
+</body>
+</html>
 </body>
 </html>

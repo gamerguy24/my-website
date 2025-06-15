@@ -121,29 +121,29 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
-// Tab switching functionality
+// Simple tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    function switchTab(tabId) {
-        // Hide all contents
-        contents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked tab
+            tab.classList.add('active-tab');
+
+            // Show corresponding content
+            const contentId = tab.getAttribute('data-tab');
+            const content = document.getElementById(contentId);
+            if (content) {
+                content.classList.add('active');
+            }
         });
-
-        // Remove active class from all tabs
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-        // Show selected content and activate tab
-        const selectedContent = document.getElementById(tabId);
-        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
-
-        if (selectedContent && selectedTab) {
-            selectedContent.style.display = 'block';
-            selectedContent.classList.add('active');
-            selectedTab.classList.add('active-tab');
+    });
+});
         }
     }
 
@@ -165,4 +165,4 @@ document.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash.slice(1);
         switchTab(`${hash}-content`);
     });
-});
+;
