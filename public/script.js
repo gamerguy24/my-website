@@ -126,24 +126,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    function switchTab(targetId) {
-        // Hide all contents
+    // Hide all tab contents except the active one
+    contents.forEach(content => {
+        if (!content.classList.contains('active')) {
+            content.style.display = 'none';
+        }
+    });
+
+    function switchTab(target) {
+        // Hide all tabs and remove active classes
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('active');
         });
-
-        // Remove active class from all tabs
         tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-        // Show selected content and activate tab
-        const selectedContent = document.getElementById(targetId);
-        const selectedTab = document.querySelector(`[data-tab="${targetId}"]`);
+        // Show selected tab
+        const tabContent = document.getElementById(target);
+        const tabLink = document.querySelector(`[data-tab="${target}"]`);
 
-        if (selectedContent && selectedTab) {
-            selectedContent.style.display = 'block';
-            selectedContent.classList.add('active');
-            selectedTab.classList.add('active-tab');
+        if (tabContent && tabLink) {
+            tabContent.style.display = 'block';
+            tabContent.classList.add('active');
+            tabLink.classList.add('active-tab');
         }
     }
 
@@ -151,28 +156,23 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-            const tabId = tab.getAttribute('data-tab');
-            switchTab(tabId);
-            history.pushState(null, null, `#${tabId.replace('-content', '')}`);
+            const target = tab.getAttribute('data-tab');
+            switchTab(target);
+            history.pushState(null, null, `#${target.replace('-content', '')}`);
         });
     });
 
-    // Handle initial load and hash changes
-    function handleHash() {
-        const hash = window.location.hash.slice(1);
-        const targetId = hash ? `${hash}-content` : 'home-content';
-        switchTab(targetId);
-    }
-
-    // Set initial tab
-    handleHash();
+    // Handle initial page load
+    const hash = window.location.hash.slice(1);
+    const initialTab = hash ? `${hash}-content` : 'home-content';
+    switchTab(initialTab);
 
     // Handle browser back/forward
-    window.addEventListener('hashchange', handleHash);
-});
+    window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
-        const initialTab = hash ? `${hash}-content` : 'home-content';
-        switchTab(initialTab);
+        switchTab(`${hash}-content`);
+    });
+});
     }
 
     // Initialize tabs
