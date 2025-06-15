@@ -126,48 +126,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    // Hide all tab contents except the active one
-    contents.forEach(content => {
-        if (!content.classList.contains('active')) {
-            content.style.display = 'none';
-        }
-    });
-
-    function switchTab(target) {
-        // Hide all tabs and remove active classes
+    function switchToTab(targetId) {
+        // Hide all tabs
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('active');
         });
+
+        // Remove active class from all tabs
         tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-        // Show selected tab
-        const tabContent = document.getElementById(target);
-        const tabLink = document.querySelector(`[data-tab="${target}"]`);
+        // Show and activate the selected tab
+        const selectedTab = document.getElementById(targetId);
+        const selectedTabLink = document.querySelector(`[data-tab="${targetId}"]`);
 
-        if (tabContent && tabLink) {
-            tabContent.style.display = 'block';
-            tabContent.classList.add('active');
-            tabLink.classList.add('active-tab');
+        if (selectedTab && selectedTabLink) {
+            selectedTab.style.display = 'block';
+            selectedTab.classList.add('active');
+            selectedTabLink.classList.add('active-tab');
         }
     }
 
-    // Add click handlers
+    // Click handler for tabs
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-            const target = tab.getAttribute('data-tab');
-            switchTab(target);
-            history.pushState(null, null, `#${target.replace('-content', '')}`);
+            const targetId = tab.getAttribute('data-tab');
+            switchToTab(targetId);
+            history.pushState(null, null, `#${targetId.replace('-content', '')}`);
         });
     });
 
-    // Handle initial page load
+    // Handle initial load and hash changes
     const hash = window.location.hash.slice(1);
-    const initialTab = hash ? `${hash}-content` : 'home-content';
-    switchTab(initialTab);
+    const initialTabId = hash ? `${hash}-content` : 'home-content';
+    switchToTab(initialTabId);
 
-    // Handle browser back/forward
+    // Handle hash changes
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.slice(1);
+        switchToTab(`${hash}-content`);
+    });
+});
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchTab(`${hash}-content`);
