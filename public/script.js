@@ -126,40 +126,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    function switchTab(tab) {
-        // Get the target content ID
-        const targetId = tab.getAttribute('data-tab');
-        const targetContent = document.getElementById(targetId);
-
-        // Hide all content panels
-        contents.forEach(content => {
+    // Hide all content sections initially except home
+    contents.forEach(content => {
+        if (!content.classList.contains('active')) {
             content.style.display = 'none';
-            content.classList.remove('active');
-        });
-
-        // Remove active class from all tabs
-        tabs.forEach(t => t.classList.remove('active-tab'));
-
-        // Show selected content and activate tab
-        if (targetContent) {
-            targetContent.style.display = 'block';
-            targetContent.classList.add('active');
-            tab.classList.add('active-tab');
         }
-    }
-
-    // Add click handlers
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            switchTab(tab);
-        });
     });
 
-    // Show home tab by default
-    const defaultTab = document.querySelector('[data-tab="home-content"]');
-    if (defaultTab) {
-        switchTab(defaultTab);
-    }
+    // Add click event listeners to all tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Hide all content sections
+            contents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active-tab'));
+
+            // Show the selected content section
+            const tabId = tab.getAttribute('data-tab');
+            const content = document.getElementById(tabId);
+            if (content) {
+                content.style.display = 'block';
+                content.classList.add('active');
+            }
+
+            // Add active class to clicked tab
+            tab.classList.add('active-tab');
+        });
+    });
+});
 });
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
