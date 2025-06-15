@@ -313,14 +313,8 @@
             <div class="scanner-container">
                 <h2>EA - TwistcasterLive Media Team Scanner</h2>
                 <div class="scanner-frame">
-                    <iframe 
-                        src="https://zello.com/channel-listen-widget?channel=WGTV%20SCANNER&showVolume=1&showControls=1&compact=0&hideinfo=1&nolinks=1&nopanel=1&noredir=1"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
-                        style="width: 100%; height: 400px; border: none; border-radius: 8px;"
-                        allow="microphone"
-                        referrerpolicy="no-referrer"
-                        id="scannerFrame">
-                    </iframe>
+                    <h3 style="text-align: center; color: #ffffff;">Coming Soon!</h3>
+                    <p style="text-align: center; color: #ffffff;">Our team scanner feature is currently under development. Check back later!</p>
                 </div>
             </div>
         </div>
@@ -595,6 +589,12 @@
 
             window.addEventListener('hashchange', () => {
                 const hash = window.location.hash.slice(1);
+                switchTab(hash ? `${hash}-content` : 'home-content');
+            });
+        });
+    </script>
+</body>
+</html>
                 switchTab(hash ? `${hash}-content` : 'home-content');
             });
         });
