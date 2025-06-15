@@ -126,55 +126,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    // Set up tab click handlers
+    function switchTab(tabId) {
+        // Hide all contents
+        contents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
+        });
+
+        // Remove active class from all tabs
+        tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+        // Show selected content and activate tab
+        const selectedContent = document.getElementById(tabId);
+        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+
+        if (selectedContent && selectedTab) {
+            selectedContent.style.display = 'block';
+            selectedContent.classList.add('active');
+            selectedTab.classList.add('active-tab');
+        }
+    }
+
+    // Add click handlers
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            // Remove active classes from all tabs and contents
-            tabs.forEach(t => t.classList.remove('active-tab'));
-            contents.forEach(c => {
-                c.style.display = 'none';
-                c.classList.remove('active');
-            });
-
-            // Activate clicked tab and its content
-            tab.classList.add('active-tab');
-            const contentId = tab.getAttribute('data-tab');
-            const content = document.getElementById(contentId);
-            if (content) {
-                content.style.display = 'block';
-                content.classList.add('active');
-            }
+            const tabId = tab.getAttribute('data-tab');
+            switchTab(tabId);
         });
     });
 
-    // Show initial tab (home)
-    document.querySelector('[data-tab="home-content"]').click();
-});
-        // Set initial tab to home or from URL hash
-        const hash = window.location.hash.slice(1);
-        const initialTabId = hash ? `${hash}-content` : 'home-content';
-        switchTab(initialTabId);
-    }
+    // Handle initial load
+    const hash = window.location.hash.slice(1);
+    const initialTabId = hash ? `${hash}-content` : 'home-content';
+    switchTab(initialTabId);
 
-    // Initialize tabs
-    handleTabs();
-});
-    // Set initial tab
-    const defaultTab = 'home-content';
-    switchTab(defaultTab);
-});
-    window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.slice(1);
-        switchToTab(`${hash}-content`);
-    });
-});
+    // Handle hash changes
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
         switchTab(`${hash}-content`);
     });
-});
-    }
-
-    // Initialize tabs
-    initTabs();
 });
