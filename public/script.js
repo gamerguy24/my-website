@@ -1,3 +1,10 @@
+function closeMaintenance() {
+    const overlay = document.getElementById('maintenanceOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
 const maptiler = L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=drXsj04WIDowwjjOrinL', {
     tileSize: 512,
     zoomOffset: -1,
