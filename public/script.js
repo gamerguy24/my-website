@@ -122,30 +122,24 @@ setInterval(() => {
 }, 60000); // Refresh every minute
 
 // Core page functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if the page loaded successfully
-    console.log('Page loaded successfully');
-
-    // Add lazy loading for images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.loading = 'lazy';
-    });
-
-    // Initialize tab switching
+document.addEventListener('DOMContentLoaded', () => {
+    // Tab switching functionality
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
     let activeTab = null;
 
     function switchTab(targetId) {
+        // Prevent switching to same tab
         if (activeTab === targetId) return;
-
+        
+        // Hide all content and remove active classes
         contents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('active');
         });
         tabs.forEach(tab => tab.classList.remove('active-tab'));
 
+        // Show selected content and set active classes
         const newTab = document.getElementById(targetId);
         const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
         
@@ -154,24 +148,30 @@ document.addEventListener('DOMContentLoaded', function() {
             newTab.classList.add('active');
             newTabLink.classList.add('active-tab');
             activeTab = targetId;
+            // Update URL hash without scrolling
             history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
         }
     }
 
+    // Add click handlers to all tabs
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
             const tabId = tab.getAttribute('data-tab');
             switchTab(tabId);
-        }, { passive: false });
+        });
     });
 
-    const hash = window.location.hash.slice(1);
-    switchTab(hash ? `${hash}-content` : 'home-content');
-
-    window.addEventListener('hashchange', () => {
+    // Handle initial load and hash changes
+    function handleHash() {
         const hash = window.location.hash.slice(1);
-        switchTab(hash ? `${hash}-content` : 'home-content');
-    });
+        const targetId = hash ? `${hash}-content` : 'home-content';
+        switchTab(targetId);
+    }
+
+    // Set initial tab
+    handleHash();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHash);
 });
