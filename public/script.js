@@ -121,57 +121,60 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
-// Core page functionality
+// Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Tab switching functionality
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
-    let activeTab = null;
+    function initTabs() {
+        const tabs = document.querySelectorAll('.tab-link');
+        const contents = document.querySelectorAll('.tab-content');
+        let activeTab = null;
 
-    function switchTab(targetId) {
-        // Prevent switching to same tab
-        if (activeTab === targetId) return;
-        
-        // Hide all content and remove active classes
+        // Hide all content sections except active one
         contents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
+            if (!content.classList.contains('active')) {
+                content.style.display = 'none';
+            }
         });
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-        // Show selected content and set active classes
-        const newTab = document.getElementById(targetId);
-        const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
-        
-        if (newTab && newTabLink) {
-            newTab.style.display = 'block';
-            newTab.classList.add('active');
-            newTabLink.classList.add('active-tab');
-            activeTab = targetId;
-            // Update URL hash without scrolling
-            history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
+        function switchTab(targetId) {
+            // Don't switch if already on target tab
+            if (activeTab === targetId) return;
+
+            // Hide all tabs and remove active classes
+            contents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            // Show selected tab
+            const newTab = document.getElementById(targetId);
+            const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
+
+            if (newTab && newTabLink) {
+                newTab.style.display = 'block';
+                newTab.classList.add('active');
+                newTabLink.classList.add('active-tab');
+                activeTab = targetId;
+            }
         }
-    }
 
-    // Add click handlers to all tabs
-    tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            const tabId = tab.getAttribute('data-tab');
-            switchTab(tabId);
+        // Add click handlers
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = tab.getAttribute('data-tab');
+                switchTab(tabId);
+                // Update URL without scrolling
+                history.pushState(null, null, `#${tabId.replace('-content', '')}`);
+            });
         });
-    });
 
-    // Handle initial load and hash changes
-    function handleHash() {
+        // Handle initial load
         const hash = window.location.hash.slice(1);
-        const targetId = hash ? `${hash}-content` : 'home-content';
-        switchTab(targetId);
+        const initialTab = hash ? `${hash}-content` : 'home-content';
+        switchTab(initialTab);
     }
 
-    // Set initial tab
-    handleHash();
-
-    // Handle hash changes
-    window.addEventListener('hashchange', handleHash);
+    // Initialize tabs
+    initTabs();
 });
