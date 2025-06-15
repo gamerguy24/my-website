@@ -538,59 +538,59 @@
         <p>We are proud to be a NOAA Weather-Ready Nation Ambassador™</p>
         <p class="copyright">© 2025 EA - TwistcasterLive Media - Providing accurate and timely weather coverage to our communities. All rights reserved.</p>
     </div>
-    <!-- Add script at the end of body -->
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js" defer></script>
     <script src="weather.js" defer></script>
     <script src="scanner.js" defer></script>
-    
-    <!-- Optional: Cloudflare Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
-</body>
-</html>
-            const tabs = document.querySelectorAll('.tab-link');
-            const contents = document.querySelectorAll('.tab-content');
-            let activeTab = null;
+    
+    <script>
+        const tabs = document.querySelectorAll('.tab-link');
+        const contents = document.querySelectorAll('.tab-content');
+        let activeTab = null;
 
-            function switchTab(targetId) {
-                if (activeTab === targetId) return;
+        function switchTab(targetId) {
+            if (activeTab === targetId) return;
 
-                // Hide all tabs
-                contents.forEach(content => {
-                    content.style.display = 'none';
-                    content.classList.remove('active');
-                });
-                tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-                // Show new tab
-                const newTab = document.getElementById(targetId);
-                const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
-                
-                if (newTab && newTabLink) {
-                    newTab.style.display = 'block';
-                    newTab.classList.add('active');
-                    newTabLink.classList.add('active-tab');
-                    activeTab = targetId;
-                    history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
-                }
-            }
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const tabId = tab.getAttribute('data-tab');
-                    switchTab(tabId);
-                }, { passive: false });
+            contents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
             });
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
 
+            const newTab = document.getElementById(targetId);
+            const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
+            
+            if (newTab && newTabLink) {
+                newTab.style.display = 'block';
+                newTab.classList.add('active');
+                newTabLink.classList.add('active-tab');
+                activeTab = targetId;
+                history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const tabId = tab.getAttribute('data-tab');
+                switchTab(tabId);
+            }, { passive: false });
+        });
+
+        const hash = window.location.hash.slice(1);
+        switchTab(hash ? `${hash}-content` : 'home-content');
+
+        window.addEventListener('hashchange', () => {
             const hash = window.location.hash.slice(1);
             switchTab(hash ? `${hash}-content` : 'home-content');
-
-            window.addEventListener('hashchange', () => {
-                const hash = window.location.hash.slice(1);
-                switchTab(hash ? `${hash}-content` : 'home-content');
-            });
+        });
+    </script>
+</body>
+</html>
         });
     </script>
 </body>
