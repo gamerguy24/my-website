@@ -18,6 +18,7 @@
     <style>
         .tab-content {
             display: none;
+            width: 100%;
         }
         .tab-content.active {
             display: block;
@@ -33,21 +34,18 @@
             position: relative;
         }
         .nav-tabs button {
-            padding: 10px 20px;
             background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            color: #fff;
             border: none;
-            border-radius: 4px;
+            padding: 10px 20px;
             cursor: pointer;
-            margin: 0 5px;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s;
         }
         .nav-tabs button:hover {
             background: rgba(0, 123, 255, 0.5);
         }
         .nav-tabs .active-tab {
-            background: #007bff;
-            color: white;
+            background: #007bff !important;
         }
         .video-container {
             pointer-events: auto;
@@ -545,6 +543,8 @@
     <script src="weather.js" defer></script>
     <script src="scanner.js" defer></script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
+</body>
+</html>
 </body>
 </html>
 </body>

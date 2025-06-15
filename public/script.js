@@ -126,38 +126,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.tab-content');
 
-    // Hide all content sections initially except home
-    contents.forEach(content => {
-        if (!content.classList.contains('active')) {
+    function showTab(tabId) {
+        // Hide all content panels
+        contents.forEach(content => {
             content.style.display = 'none';
+            content.classList.remove('active');
+        });
+
+        // Deactivate all tabs
+        tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+        // Show and activate selected tab
+        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+        const selectedContent = document.getElementById(tabId);
+
+        if (selectedTab && selectedContent) {
+            selectedTab.classList.add('active-tab');
+            selectedContent.style.display = 'block';
+            selectedContent.classList.add('active');
         }
+    }
+
+    // Add click handlers to tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            showTab(tabId);
+        });
     });
 
-    // Add click event listeners to all tabs
-    tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Hide all content sections
-            contents.forEach(content => {
-                content.style.display = 'none';
-                content.classList.remove('active');
-            });
-
-            // Remove active class from all tabs
-            tabs.forEach(t => t.classList.remove('active-tab'));
-
-            // Show the selected content section
-            const tabId = tab.getAttribute('data-tab');
-            const content = document.getElementById(tabId);
-            if (content) {
-                content.style.display = 'block';
-                content.classList.add('active');
-            }
-
-            // Add active class to clicked tab
-            tab.classList.add('active-tab');
-        });
+    // Show default tab on load
+    showTab('home-content');
+});
     });
 });
 });
