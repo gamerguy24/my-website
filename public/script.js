@@ -121,35 +121,35 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
-// Simple tab switching functionality
+// Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
-    function handleTabs() {
-        const tabs = document.querySelectorAll('.tab-link');
-        const panels = document.querySelectorAll('.tab-content');
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
 
-        function switchTab(tabId) {
-            // Hide all panels and deactivate tabs
-            panels.forEach(panel => panel.style.display = 'none');
-            tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-            // Show selected panel and activate tab
-            const panel = document.getElementById(tabId);
-            const tab = document.querySelector(`[data-tab="${tabId}"]`);
-
-            if (panel && tab) {
-                panel.style.display = 'block';
-                tab.classList.add('active-tab');
-            }
-        }
-
-        // Add click handlers to tabs
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-                switchTab(tabId);
+    // Set up tab click handlers
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            contents.forEach(c => {
+                c.style.display = 'none';
+                c.classList.remove('active');
             });
-        });
 
+            // Activate clicked tab and its content
+            tab.classList.add('active-tab');
+            const contentId = tab.getAttribute('data-tab');
+            const content = document.getElementById(contentId);
+            if (content) {
+                content.style.display = 'block';
+                content.classList.add('active');
+            }
+        });
+    });
+
+    // Show initial tab (home)
+    document.querySelector('[data-tab="home-content"]').click();
+});
         // Set initial tab to home or from URL hash
         const hash = window.location.hash.slice(1);
         const initialTabId = hash ? `${hash}-content` : 'home-content';
