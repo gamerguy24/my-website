@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const startButton = document.getElementById('startScanner');
     const statusSpan = document.getElementById('scannerStatus');
     const scannerFrame = document.getElementById('scannerFrame');
-    let isPlaying = false;
 
-    // Create a hidden audio context (needed for iOS)
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-    function setupAudio() {
-        // Resume audio context on user interaction
-        audioContext.resume();
-        
-        // Force iframe interaction
-        scannerFrame.contentWindow.postMessage({
+    // Set initial state
+    startButton.textContent = 'Coming Soon';
+    startButton.disabled = true;
+    statusSpan.textContent = 'Feature not available';
+    statusSpan.style.color = '#ffffff';
+    
+    if (scannerFrame) {
+        scannerFrame.style.display = 'none';
+    }
+});
             command: 'forceInteraction',
             value: true
         }, '*');
