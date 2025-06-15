@@ -1,810 +1,603 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>West GA Weather Radar</title>
-    <link rel="icon" type="image/png" href="https://imgur.com/1yg7pPb.png">
-    <meta charset="utf-8"/>
-   <meta content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
-    <meta property="og:title" content="West GA Weather Radar">
-    <meta property="og:description" content="The official West GA Weather radar offers live alerts, watches, reports, customizable color schemes, satellite imagery, smoothing options, and much more—all for free.">
-    <meta property="og:image" content="https://imgur.com/1yg7pPb.png">
-  <link rel="preload" href="https://api.maptiler.com/maps/d3bdcfa3-d8d8-4bc1-958d-6d1780cb4de1/style.json?key=drXsj04WIDowwjjOrinL" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="https://api.maptiler.com/maps/3d1b9c2b-3b90-4457-8310-fbd15c34d453/style.json?key=HKGa1lnD7ToUuzx5Ohp0" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="https://api.maptiler.com/maps/645f642d-36b4-42d1-8b02-b9968eff3443/style.json?key=HKGa1lnD7ToUuzx5Ohp0" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="https://api.maptiler.com/maps/dd940e48-cc35-41f3-b8e6-3942e4a1f75b/style.json?key=HKGa1lnD7ToUuzx5Ohp0" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="https://i.postimg.cc/6phc4hHF/IMG-4634-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/TPR22TSn/IMG-4615-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/4d2xFjWV/IMG-4613-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/3JBc57gs/IMG-4607-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/bJxRxHg7/IMG-4608-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/K8C7CsHX/IMG-4610-removebg-preview-1.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/gcMZfTxM/IMG-4619-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.ibb.co/BLpDqjr/IMG-7262.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/HTgK74M/download-32.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/rd1xJLg/download-33.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/b29Tb0C/download-34.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/Fw0D7Ky/download-35.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/p2fBxNk/download-36.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/r2yj8cm/2.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/SPgBMTd/5-wind.png" as="image">
-    <link rel="preload" href="https://i.postimg.cc/NF0xFHd6/10-tor.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/Vwbz2g1/IMG-7277-modified.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/qYjRDwM/30-tor.png" as="image">
-    <link rel="preload" href="https://i.postimg.cc/BZhgymvM/45-tor.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/jD4gf2F/15-wind.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/L1hKKkp/IMG-7262-1.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/rpPKWXw/30-wind.png" as="image">
-    <link rel="preload" href="https://i.ibb.co/dtkmMpp/45-wind.png" as="image">
-    <link rel="preload" href="https://kit.fontawesome.com/7c0d120d1b.js" as="script" crossorigin="anonymous">
-    <link rel="preload" href="https://kit.fontawesome.com/7c0d120d1b.css" as="style" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMY5tA5LUfUWzQcJdVPHfGl4Z4wUmkO9j/+zTYM" crossorigin="anonymous">
-
-    <link rel="preload" href="https://i.postimg.cc/CMW0J24t/IMG-4612-removebg-preview-1.webp" as="image">
-    <link rel="preload" href="https://i.postimg.cc/TPR22TSn/IMG-4615-removebg-preview.webp" as="image">
-    <link rel="preload" href="https://i.ibb.co/vw43hWJ/Square-256x-20.png" as="image">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA - TwistcasterLive Media - Home</title>
+    <!-- Cloudflare recommended meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
     
-    <link rel="stylesheet" href="style.css">
-
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <!-- Cloudflare's automatic platform optimization -->
+    <meta name="cf-2fa-verify" content="true">
+    
     <style>
-        /* Add these styles inline to ensure they take effect immediately */
-        .menu-panel {
+        .tab-content {
             display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
         }
-        
-        .menu-panel.active {
+        .tab-content.active {
             display: block;
-            opacity: 1;
+            pointer-events: auto;
         }
-        
-        /* Ensure submenus are hidden by default */
-        #hurricane-settings,
-        #outlooks-settings,
-        #reports-settings,
-        #map-settings,
-        #radar-settings,
-        #alerts-settings,
-        #weather-radio-settings,
-        #general-info,
-        #updates-info,
-        #attributions,
-        #info-menu {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            pointer-events: auto;
+            z-index: 100;
+            position: relative;
         }
-        
-        /* When active, show menus smoothly */
-        .active {
-            display: block !important;
-            opacity: 1 !important;
+        .nav-tabs a {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .nav-tabs .active-tab {
+            background: #007bff;
+            color: white;
+            pointer-events: none;
+        }
+        .video-container {
+            pointer-events: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .licensing-banner {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .fb-videos-container {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .logo-overlay img {
+            max-width: 150px;
+            height: auto;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .maintenance-overlay h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+        .maintenance-overlay p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            max-width: 600px;
+        }
+        .maintenance-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
         }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2L4XKHE9RM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-2L4XKHE9RM');
+    <!-- Update Facebook SDK with proper initialization -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" 
+        nonce="random123">
     </script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
-    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
-    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
-    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v2.0.0/leaflet-maptilersdk.js"></script>
-    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
-    <script src="https://kit.fontawesome.com/7c0d120d1b.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="preload" href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style">
-
-    <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" as="script">
-    <link rel="preload" href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js" as="script" crossorigin="anonymous">
-    <link rel="preload" href="https://kit.fontawesome.com/7c0d120d1b.js" as="script" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/websocket/1.0.34/websocket.min.js"></script>
 </head>
-
-<!-- Control Bar at Bottom with Updated Margins and Button Sizes -->
-<div id="control-bar">
-    <ul style="list-style: none; padding: 0; margin: 0; display: flex; align-items: center;">
-        <!-- Backward Button -->
-        <li class="sli">
-            <button class="control-button" onclick="stop(); showFrame(animationPosition - 1); return;">
-                <i class="fa-solid fa-backward"></i>
-            </button>
-        </li>
-
-        <!-- Play/Stop Button -->
-        <li class="sli">
-            <button class="control-button" onclick="playStop();" id="stbtn">
-                <i class="fa-solid fa-play"></i>
-            </button>
-        </li>
-
-        <!-- Forward Button -->
-        <li class="sli">
-            <button class="control-button" onclick="stop(); showFrame(animationPosition + 1); return;">
-                <i class="fa-solid fa-forward"></i>
-            </button>
-        </li>
-
-        <!-- Refresh Radar Button -->
-        <li class="sli">
-            <button class="control-button" onclick="refreshRadar();">
-                <i class="fa-solid fa-refresh"></i>
-            </button>
-        </li>
-
-        <!-- Layers Button -->
-        <li class="sli">
-            <button id="layers-button" class="control-button" onclick="toggleMainMenu('layers-menu');">
-                <i class="fa-solid fa-layer-group"></i>
-            </button>
-        </li>
-
-        <!-- Spotters Button -->
-        <li class="sli">
-            <button id="spotter-button" class="control-button" onclick="toggleSpotters();" title="Toggle Storm Spotters">
-                <i class="fa-solid fa-binoculars"></i>
-            </button>
-        </li>
-
-        <!-- Info Button -->
-        <li class="sli">
-            <button id="info-button" class="control-button" onclick="toggleMainMenu('info-menu')">
-                <i class="fa-solid fa-info-circle"></i>
-            </button>
-        </li>
-    </ul>
-</div>
-
-
-    <div style="position: absolute; left: 50%; top: 30px;">
-        <div class="overlay-object overlay-border" id="timestamp" style="cursor: default; text-align:center; position: relative; left: -50%;">Loading...</div>
-    </div>
-
-<!-- Hurricane Settings Submenu -->
-<div id="hurricane-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="settings-title"><b>Hurricane Settings</b></p>
-        <button id="toggle-hurricanes" style="margin-bottom: 5px;" class="submenu-button" onclick="toggleHurricanes();">
-            <i class="fa-solid fa-hurricane"></i> Toggle Hurricanes
-        </button>
-      
-
-        <!-- New Toggle Disturbances Button -->
-        <button id="toggle-disturbances" class="submenu-button" onclick="toggleInvests();">
-            <i class="fa-solid fa-wind"></i> Toggle Disturbances
-        </button>
-         <p>Toggle the display of hurricane tracks and data on the map.</p>
-    </div>
-</div>
-
-
-<div id="layers-menu" class="menu-panel">
-    <div class="menu-header">
-        <h2>Layers</h2>
-        <button class="exit-button" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <button class="menu-button" onclick="toggleSubMenu('map-settings')">
-        <i class="fas fa-map"></i> Map Settings
-    </button>
-    <button class="menu-button" onclick="toggleSubMenu('radar-settings')">
-        <i class="fas fa-radar"></i> Radar Settings
-    </button>
-    <button class="menu-button" onclick="toggleSubMenu('alerts-settings')">
-        <i class="fas fa-bell"></i> Alert Settings
-    </button>
-    <button class="menu-button" onclick="toggleSubMenu('placefile-settings')">
-        <i class="fas fa-file"></i> Placefile Settings
-    </button>
-</div>
-
-<!-- Placefile Settings Submenu -->
-<div id="placefile-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="settings-title"><b>Placefile Settings</b></p>
-        <div class="placefile-input">
-            <input type="text" id="placefile-url" placeholder="Enter placefile URL" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 2px solid #636381; border-radius: 5px;">
-            <button onclick="addPlacefile();" style="font-size: 16px; background-color: white; color: #7F1DF0; border: 2px solid #636381; border-radius: 10px; width: 100%;">
-                <i class="fa-solid fa-plus"></i> Add Placefile
-            </button>
-        </div>
-        <div id="placefile-list" style="margin-top: 15px;">
-            <!-- Active placefiles will be listed here -->
-        </div>
-        <p style="font-size: 14px; margin-top: 15px;">Enter a placefile URL to add custom overlays to the map. Supports GR Level 3 compatible placefiles.</p>
-    </div>
-</div>
-
-<div id="outlooks-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="settings-title"><b>Outlook Settings</b></p>
-    </div>
-
-<div class="outlook-group">
-        <!-- Day 1 Outlooks -->
-        <div class="outlook-selector">
-            <b>Day 1:</b>
-            <div>
-                <input type="checkbox" id="convective_day1" name="outlook" onclick="updateOutlookType('day1', 'convective_day1');">
-                <label for="convective_day1">Convective Outlook</label><br>
-                <input type="checkbox" id="tornado_day1" name="outlook" onclick="updateOutlookType('day1', 'tornado_day1');">
-                <label for="tornado_day1">Tornado Outlook</label><br>
-                <input type="checkbox" id="wind_day1" name="outlook" onclick="updateOutlookType('day1', 'wind_day1');">
-                <label for="wind_day1">Wind Outlook</label><br>
-                <input type="checkbox" id="hail_day1" name="outlook" onclick="updateOutlookType('day1', 'hail_day1');">
-                <label for="hail_day1">Hail Outlook</label>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="https://imgur.com/wsxCf12.jpg" alt="Logo" class="logo">
+                <h1>EA - TwistcasterLive Media</h1>
+            </div>
+            <div class="nav-tabs">
+                <a href="#home" class="tab-link active-tab" data-tab="home-content">Home</a>
+                <a href="#team" class="tab-link" data-tab="team-content">The Weather Team</a>
+                <a href="#radar" class="tab-link" data-tab="radar-content">Weather Radar</a>
+                <a href="#scanner" class="tab-link" data-tab="scanner-content">Team Scanner</a>
+                <a href="#alerts" class="tab-link" data-tab="alerts-content">Weather Alerts</a>
+                <a href="#outlook" class="tab-link" data-tab="outlook-content">SPC Outlook</a>
+                <a href="#videos" class="tab-link" data-tab="videos-content">Videos</a>
+                <a href="#stream" class="tab-link" data-tab="stream-content">Live Stream</a>
+                <a href="#sponsors" class="tab-link" data-tab="sponsors-content">Sponsors</a>
+                <a href="#shop" class="tab-link" data-tab="shop-content">Shop</a>
+                <a href="#privacy" class="tab-link" data-tab="privacy-content">Privacy Policy</a>
+            </div>
+        </header>
+        <!-- Home Content -->
+        <div id="home-content" class="tab-content active">
+            <div class="featured-image">
+                <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media Featured Logo">
+            </div>
+            <div class="content">
+                <p>
+                    EA - TwistcasterLive Media was started in 2018 by a group of storm chasers. This storm chasers are a christian team of men & women who enjoy chasing storms, covering live breaking news stories, and providing news worthy stories that the public needs to know about. Safety & News Worthy Stories.
+                </p>
+                <p>
+                    EA - TwistcasterLive Media is the first real new media television not owned by a liberal media corporation. We do not hype up media stories to feed into the lack minded media. We are here to provided real news as its happening & give you the true facts and not what we think is happening. This is a group of people who want to provide you with what's really happening in our local community area.
+                </p>
+                <p>
+                    News, Weather, Sports & Church Related Programming. The one thing west georgia doesn't have.
+                </p>
+                <div class="coverage-area">
+                    <h3>Coverage Area</h3>
+                    <p>We Currently Cover:</p>
+                    <ul>
+                        <li>Carroll, Haralson, Heard, Polk, Douglas Counties In Georgia</li>
+                        <li>Cleburne & Randolph Counties In Alabama</li>
+                    </ul>
+                </div>
+                <p>
+                    And thank you for allowing us to be apart of your family & in your home as we promise & strive to provide you with great service.
+                </p>
+                <!-- Add Social Media Links -->
+                <div class="social-links">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/xXTcAJ9Em8" target="_blank" class="social-icon">
+                            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord">
+                            <span>Join our Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@WGTV1" target="_blank" class="social-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/120px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
+                            <span>Watch on YouTube</span>
+                        </a>
+                        <a href="https://www.facebook.com/WGTVnow/" target="_blank" class="social-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/120px-Facebook_Logo_%282019%29.png" alt="Facebook">
+                            <span>Follow on Facebook</span>
+                        </a>
+                        <a href="https://x.com/WGTV2018" target="_blank" class="social-icon">
+                            <img src="https://imgur.com/wsxCf12.jpg" alt="The Weather Team">
+                            <span>The Weather Team</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Spacer -->
-        <div style="margin-top: 20px;"></div>
-
-        <!-- Day 2 Outlooks -->
-        <div class="outlook-selector">
-            <b>Day 2:</b>
-            <div>
-                <input type="checkbox" id="convective_day2" name="outlook" onclick="updateOutlookType('day2', 'convective_day2');">
-                <label for="convective_day2">Convective Outlook</label><br>
-                <input type="checkbox" id="tornado_day2" name="outlook" onclick="updateOutlookType('day2', 'tornado_day2');">
-                <label for="tornado_day2">Tornado Outlook</label><br>
-                <input type="checkbox" id="wind_day2" name="outlook" onclick="updateOutlookType('day2', 'wind_day2');">
-                <label for="wind_day2">Wind Outlook</label><br>
-                <input type="checkbox" id="hail_day2" name="outlook" onclick="updateOutlookType('day2', 'hail_day2');">
-                <label for="hail_day2">Hail Outlook</label>
+        <!-- Add Team Content after home content -->
+        <div id="team-content" class="tab-content">
+            <div class="team-container">
+                <div class="team-header">
+                    <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media Logo" class="team-logo">
+                    <h2>Meet the Weather Team</h2>
+                </div>
+                <div class="team-grid">
+                    <!-- EA - West Georgia Television Leadership -->
+                    <div class="team-member">
+                        <h3>Nathan Bradley</h3>
+                        <p class="member-title">CEO</p>
+                        <p class="member-roles">Director / Storm Tracker</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>David Wallis</h3>
+                        <p class="member-title">President</p>
+                        <p class="member-roles">Social Media Manager / Coding Specialist</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Joey Pisani</h3>
+                        <p class="member-title">Lead Meteorologist</p>
+                        <p class="member-roles">Weather Forecasting / Analysis</p>
+                    </div>
+                    <div class="team-member">
+                        <h3>Nick Carter</h3>
+                        <p class="member-title">Lead Storm Chaser</p>
+                        <p class="member-roles">Field Operations</p>
+                    </div>
+                </div>
+                <!-- TwistcasterLive Media Group Section -->
+                <div class="team-section" style="margin-top: 40px;">
+                    <h2 style="text-align: center; margin-bottom: 30px;">TwistcasterLive Media Group</h2>
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <img src="https://imgur.com/xfB6V6J.jpg" alt="TCL Media Logo" style="max-width: 300px; width: 100%; height: auto;">
+                    </div>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <h3>Mandy Jenes</h3>
+                            <p class="member-roles">Storm Chaser - TCL Media</p>
+                        </div>
+                        <div class="team-member">
+                            <h3>Ashley Lee</h3>
+                            <p class="member-roles">Storm Chaser - TCL Media</p>
+                        </div>
+                        <div class="team-member">
+                            <h3>Jesse Perkins</h3>
+                            <p class="member-roles">Storm Chaser - TCL Media</p>
+                        </div>
+                        <div class="team-member">
+                            <h3>Michael Lynn</h3>
+                            <p class="member-roles">Storm Chaser - TCL Media</p>
+                        </div>
+                        <div class="team-member">
+                            <h3>Cody Knox</h3>
+                            <p class="member-roles">Storm Chaser - TCL Media</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- Radar Content -->
+        <div id="radar-content" class="tab-content">
+            <div class="weather-container">
+                <h2>Current Weather Conditions</h2>
+                <div class="weather-grid">
+                    <!-- Georgia Counties -->
+                    <div class="weather-section">
+                        <h3>Georgia Counties</h3>
+                        <div id="ga-weather" class="county-weather">
+                            <div class="weather-card" id="carroll-weather">
+                                <h4>Carroll County</h4>
+                                <div class="weather-data"></div>
+                            </div>
+                            <div class="weather-card" id="haralson-weather">
+                                <h4>Haralson County</h4>
+                                <div class="weather-data"></div>
+                            </div>
+                            <div class="weather-card" id="heard-weather">
+                                <h4>Heard County</h4>
+                                <div class="weather-data"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alabama Counties -->
+                    <div class="weather-section">
+                        <h3>Alabama Counties</h3>
+                        <div id="al-weather" class="county-weather">
+                            <div class="weather-card" id="cleburne-weather">
+                                <h4>Cleburne County</h4>
+                                <div class="weather-data"></div>
+                            </div>
+                            <div class="weather-card" id="randolph-weather">
+                                <h4>Randolph County</h4>
+                                <div class="weather-data"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <iframe 
+                src="https://west-ga-tv-radar.onrender.com/"
+                width="100%" 
+                height="800" 
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Add Scanner Content -->
+        <div id="scanner-content" class="tab-content">
+            <div class="scanner-container">
+                <h2>EA - TwistcasterLive Media Team Scanner</h2>
+                <div class="scanner-frame">
+                    <h3 style="text-align: center; color: #ffffff;">Coming Soon!</h3>
+                    <p style="text-align: center; color: #ffffff;">Our team scanner feature is currently under development. Check back later!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Add Audio Alerts Content (add after radar content) -->
+        <div id="alerts-content" class="tab-content">
+            <div class="alerts-container">
+                <h2>Severe Weather Audio Alerts</h2>
+                <div class="alerts-frame">
+                    <iframe 
+                        src="https://severeaudioweatheralerts.glitch.me/"
+                        width="100%" 
+                        height="800" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Outlook Content -->
+        <div id="outlook-content" class="tab-content">
+            <iframe 
+                src="https://www.spc.noaa.gov/products/outlook/day1otlk.html" 
+                width="100%" 
+                height="800" 
+                frameborder="0">
+            </iframe>
+        </div>
+        <!-- Videos Content -->
+        <div id="videos-content" class="tab-content">
+            <div class="licensing-banner">
+                NOT FOR REBROADCAST - CONTACT ea.westgeorgiatelevision@outlook.com for licensing
+            </div>
+            <div class="videos-container">
+                <h2>Video Archive</h2>
+                <!-- Add YouTube Videos -->
+                <div class="youtube-videos">
+                    <h3>Featured Videos</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                        <div class="youtube-video">
+                            <iframe 
+                                src="https://www.youtube.com/embed/U7HQZ72ns7k"
+                                frameborder="0"
+                                allowfullscreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                            </iframe>
+                        </div>
+                        <div class="youtube-video">
+                            <iframe 
+                                src="https://www.youtube.com/embed/vQ4VQZFgsFA"
+                                frameborder="0"
+                                allowfullscreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb-videos-container">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div class="fb-video" 
+                            data-href="https://www.facebook.com/WGTVnow/videos/1315251949749879"
+                            data-width="auto"
+                            data-show-text="true"
+                            data-allowfullscreen="true">
+                        </div>
+                        <div class="fb-video" 
+                            data-href="https://www.facebook.com/WGTVnow/videos/1121719512406283"
+                            data-width="auto"
+                            data-show-text="true"
+                            data-allowfullscreen="true">
+                        </div>
+                        <div class="fb-video" 
+                            data-href="https://www.facebook.com/WGTVnow/videos/613210348369125"
+                            data-width="auto"
+                            data-show-text="true"
+                            data-allowfullscreen="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Update Stream Content section -->
+        <div id="stream-content" class="tab-content">
+            <div class="video-container">
+                <h2>Live Stream</h2>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/live_stream?channel=UCQvEZ1q0pS4YoaPWGS8DHeg&autoplay=1"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                        frameborder="0"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>If no stream appears, we are currently offline. Follow our social media for notifications when we go live!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Traffic Content -->
+        <div id="traffic-content" class="tab-content">
+            <iframe 
+                src="https://embed.waze.com/iframe?zoom=12&lat=33.5785&lon=-85.0766" 
+                width="100%" 
+                height="600" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Add Sponsors Content -->
+        <div id="sponsors-content" class="tab-content">
+            <div class="sponsors-container">
+                <h2>Our Valued Partners</h2>
+                <div class="sponsor-grid">
+                    <div class="sponsor-card">
+                        <a href="https://www.miops.com/" target="_blank">
+                            <img src="https://imgur.com/DAYfgLW.jpg" alt="MIOPS">
+                            <div class="sponsor-info">
+                                <h3>MIOPS</h3>
+                                <p>Lightning Trigger Partner</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://www.ecowitt.com/" target="_blank">
+                            <img src="https://i.imgur.com/sG9tTWS.jpg" alt="Ecowitt Weather Station">
+                            <div class="sponsor-info">
+                                <h3>Ecowitt Weather Station</h3>
+                                <p>Weather Monitoring Partner</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://maglite.com/products/the-ultimate-rechargeable-bundle-ml150lrx-and-mag-tac-rechargeable-systems?_pos=1&_psq=ml150lr-bund&_ss=e&_v=1.0" target="_blank">
+                            <img src="https://i.imgur.com/8sM6T8A.jpg" alt="Maglite Partnership">
+                            <div class="sponsor-info">
+                                <h3>Maglite</h3>
+                                <p>4 Year Flashlights Partnership</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://talk2me.us/wholesale-shop/" target="_blank">
+                            <img src="https://i.imgur.com/yDx7prK.jpg" alt="Talk2me Cell Tower">
+                            <div class="sponsor-info">
+                                <h3>Talk2me Cell Tower</h3>
+                                <p>Communication Partner</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://www.facebook.com/share/1AEn6WE2TK/?mibextid=wwXIfr" target="_blank">
+                            <img src="https://imgur.com/jpmhP0i.jpg" alt="By His Grace">
+                            <div class="sponsor-info">
+                                <h3>By His Grace</h3>
+                                <p>Faith Based Partnership</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="https://imgur.com/ysm8YBX.jpg" alt="Weather Outreach">
+                        <div class="sponsor-info">
+                            <h3>Weather Outreach</h3>
+                            <p>Community Education Partner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Shop Content before Privacy Policy -->
+        <div id="shop-content" class="tab-content">
+            <div class="shop-container">
+                <h2>EA - TwistcasterLive Media Merchandise</h2>
+                <div class="shop-frame">
+                    <iframe 
+                        src="https://my-store-f73295.creator-spring.com/listing/west-ga-tv"
+                        width="100%" 
+                        height="800" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Add or update the Privacy Policy tab content -->
+        <div id="privacy-content" class="tab-content">
+            <div class="privacy-container">
+                <h2>Privacy Policy</h2>
+                <div class="policy-content">
+                    <h3>Information Collection and Use</h3>
+                    <p>EA - TwistcasterLive Media is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+                    <h3>Information We Collect</h3>
+                    <ul>
+                        <li>Basic analytics data about website usage</li>
+                        <li>Information you voluntarily provide through contact forms</li>
+                        <li>Technical information necessary for streaming services</li>
+                    </ul>
+                    <h3>How We Use Your Information</h3>
+                    <p>We use the collected information to:</p>
+                    <ul>
+                        <li>Improve our website and services</li>
+                        <li>Provide accurate weather and news information</li>
+                        <li>Respond to your inquiries</li>
+                        <li>Maintain the security of our services</li>
+                    </ul>
+                    <h3>Third-Party Services</h3>
+                    <p>We use third-party services including:</p>
+                    <ul>
+                        <li>Cloudflare for website hosting and security</li>
+                        <li>Weather data providers</li>
+                        <li>Streaming service providers</li>
+                    </ul>
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, please contact us through our provided contact information.</p>
 
-        <!-- Spacer -->
-        <div style="margin-top: 20px;"></div>
-
-        <!-- Day 3 Outlooks -->
-        <div class="outlook-selector">
-            <b>Day 3:</b>
-            <div>
-                <input type="checkbox" id="convective_day3" name="outlook" onclick="updateOutlookType('day3', 'convective_day3');">
-                <label for="convective_day3">Convective Outlook</label> 
+                    <p class="policy-footer">Last updated: March 2024</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Report settings submenu -->
-<div id="reports-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');"><i class="fa-solid fa-times"></i></button>
+    <div class="ambassador-section">
+        <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media Logo">
+        <p>We are proud to be a NOAA Weather-Ready Nation Ambassador™</p>
+        <p class="copyright">© 2025 EA - TwistcasterLive Media - Providing accurate and timely weather coverage to our communities. All rights reserved.</p>
     </div>
-    <div style="margin-top: 10px;">
-        <p class="alert-settings-title"><b>Report Settings</b></p> <!-- Adjusted here -->
-        <button id="togglereports" onclick="toggleReports();" style="font-size: 17px; background-color: white; color: #7F1DF0; border: #636381 2px solid;"><i class="fa-solid fa-flag"></i> Toggle Reports</button>
-<p>Toggle the display of real-time storm reports on the map. Reports are automatically removed 2 hours after their initial appearance.  
-</p>
-    </div>
-</div>
-
-<!-- Map settings submenu -->
-<div id="map-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');"><i class="fa-solid fa-times"></i></button>
-    </div>
-    <div style="margin-top: 0px;">
-        <p class="settings-title"><b>Map Type</b></p>
-        <label><input type="radio" name="map-type" value="light" onclick="setMapType('light')"> Light Mode</label><br>
-        <label><input type="radio" name="map-type" value="dark" onclick="setMapType('dark')"> Dark Mode</label><br>
-        <label><input type="radio" name="map-type" value="satellite" onclick="setMapType('satellite')"> Satellite</label>
-    </div>
-    <div id="location-settings-container" style="margin-top: 20px;">
-        <p class="settings-title" style="text-align: left; padding-left: 2px;"><b>Location Settings</b></p>
-        <button id="current-location-button" class="location-button" style="font-size: 17px; background-color: #636381; color: white; border: 2px solid white; margin-top: 5px;">
-            <i class="fa-solid fa-location-arrow"></i> Show Location
-        </button>
-        <p style="font-size: 14px; color: #98FB98; display: flex; align-items: center; justify-content: center; margin-top: 10px;">
-            <i class="fa-solid fa-shield-alt" style="color: #98FB98; font-size: 18px; margin-right: 5px;"></i>
-            Location data is never saved.
-        </p>
-    </div>
-</div>
-
- <div id="radar-settings">
-    <div class="menu-header">
-        <button class="back-button" onclick="toggleSubMenu('radar-settings', 'back')">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" onclick="toggleMainMenu('')">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="settings-title"><b>Radar Type</b></p>
-        <label><input type="radio" name="radar-type" value="radar" checked onclick="setRadarType('radar')"> Radar</label>
-        <label><input type="radio" name="radar-type" value="satellite" onclick="setRadarType('satellite')"> Infrared Satellite</label>
-    </div>
-    <div style="margin-top: 20px;">
-        <p class="settings-title"><b>Radar Settings</b></p>
-
-        <!-- Smoothing Button (First) -->
-        <button id="smoothing-button" onclick="toggleSmoothing();" style="font-size: 16px; background-color: white; color: #7F1DF0; border: 2px solid #636381; border-radius: 10px;">
-            <i class="fa-solid fa-wave-square"></i> Smoothing On
-        </button>
-
-        <!-- Animation Speed Button (Second) -->
-        <button id="speed-button" onclick="toggleAnimationSpeed();" style="font-size: 16px; background-color: white; color: #7F1DF0; border: 2px solid #636381; border-radius: 10px;">
-            <i class="fa-solid fa-forward"></i> Animation Speed: 1x
-        </button>
-
-        <!-- High Res / Low Res Button (Third) -->
-        <button id="highres-button" onclick="toggleHighRes();" style="font-size: 16px; background-color: white; color: #7F1DF0; border: 2px solid #636381; border-radius: 10px;">
-            <i class="fa-solid fa-highlighter"></i> Low Res Radar
-        </button>
-
-        <!-- Color Selection Dropdown (Styled to match buttons) -->
-        <select id="colors" onchange="setColors();" style="font-size: 14px; background-color: white; color: #7F1DF0; border: 2px solid #636381; border-radius: 10px; font-family: 'Inter', sans-serif;">
-            <option value="6">Original</option>
-            <option value="1">Fruit</option>
-            <option value="2">Universal Blue</option>
-            <option value="3">TITAN</option>
-            <option value="4">The Weather Channel</option>
-            <option value="5">WeatherBug</option>
-            <option value="8">Apple Weather</option>
-            <option value="7">RAINBOW @ SELEX-SI</option>
-            <option value="0">Black & White</option>
-        </select>
-    </div>
-    <div style="margin-top: 20px;">
-        <p class="settings-title"><b>Radar Opacity:</b></p>
-        <input type="range" min="0" max="1" step="0.1" value="0.7" id="radar-opacity-slider" oninput="updateRadarOpacity(this.value)">
-        <span id="radar-opacity-value">0.7</span>
-    </div>
-</div>
-
-
-<div id="loading-screen">
-    <div class="spinner"></div>
-</div>
-
-
-
-<!-- Alerts settings submenu -->
-<div id="alerts-settings">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');"><i class="fa-solid fa-times"></i></button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="alert-settings-title"><b>Alert Settings</b></p>
-          <button id="refreshalerts" onclick="toggleAlerts();" style="font-size: 17px; background-color: white; color: #7F1DF0; border: #636381 2px solid;"><i class="fa-solid fa-triangle-exclamation"></i> Toggle Alerts</button>    
-        <button id="togglewatches" onclick="toggleWatches();" style="font-size: 17px; background-color: white; color: #7F1DF0; border: #636381 2px solid;"><i class="fa-solid fa-eye"></i> Toggle Watches</button>
-        <button id="togglediscussions" onclick="toggleDiscussions();" style="font-size: 17px; background-color: white; color: #7F1DF0; border: 2px solid #636381;"><i class="fa-solid fa-comments"></i> Toggle Discussions</button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p class="alert-settings-title"><b>Alert Fill Opacity:</b></p>
-        <input type="range" min="0" max="1" step="0.1" value="0.4" id="alert-opacity-slider" oninput="updateAlertOpacity(this.value)">
-        <span id="alert-opacity-value">0.4</span>
-    </div>
-</div>
-
-
-    <!--Alert list submenu-->
-    <div id="alert-list-submenu">
-        <div class="menu-header">
-            <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('alerts-settings');"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');"><i class="fa-solid fa-times"></i></button>
-        </div>
-        <div style="margin-top: 10px;" class="small-border">
-            <p style="margin: 0; padding: 2px;"><b>Alert List:</b></p>
-        </div>
-    </div>
+    <!-- Add script at the end of body -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="scanner.js" defer></script>
     
-  <!-- Weather Radio Settings Submenu -->
-<div id="weather-radio-settings">
+    <!-- Optional: Cloudflare Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-link');
+            const contents = document.querySelectorAll('.tab-content');
+            let activeTab = null;
 
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('layers-menu');">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-</div>
-    <div style="margin-top: 10px;">
-        <p style="margin-bottom: 10px; font-weight: bold; font-size: 16px;">Weather Radio Settings</p>
-        <button id="toggle-weather-radio" class="submenu-button" onclick="toggleWeatherRadio();">
-            <i class="fas fa-radio"></i> Toggle Stations
-        </button>
-        <p>Toggle the display of weather radio stations on the map. Stations are provided by <a href="https://weatherradio.org" target="_blank">GWES WeatherRadio</a> from participating contributors.</p>
-    </div>
-</div>
+            function switchTab(targetId) {
+                if (activeTab === targetId) return;
 
-
-
-   <!-- Info menu -->
-<div id="info-menu">
-    <div class="menu-header">
-        <span><i class="fa-solid fa-info-circle"></i> Info</span>
-        <button class="exit-button" onclick="toggleMainMenu('')">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div id="info-content">
-        <button class="menu-button" onclick="toggleSubMenu('general-info')">
-            <i class="fa-solid fa-info-circle"></i> General Info <i class="fa-solid fa-chevron-right"></i>
-        </button>
-        <button class="menu-button" onclick="toggleSubMenu('updates-info')">
-            <i class="fa-solid fa-arrow-rotate-right"></i> Updates <i class="fa-solid fa-chevron-right"></i>
-        </button>
-    </div>
-</div>
-
-<!-- Add new Updates submenu -->
-<div id="updates-info">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="returnToInfoMenu();">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p style="text-align: center; font-size: 18px;"><b>Latest Updates</b></p>
-        <p><b>General Information</b></p>
-        <p>Version: 1.5.0</p>
-        <p>Build Number: 52</p>
-
-        <p><b>Update Log</b></p>
-        <p>Version 1.5.0: A few more updates! We added Potential Disturbance Areas to the radar! We also gave the UI a small refresh, and even added an Animation Speed toggle! - 11/10/2024</p>
-        <p>Version 1.4.0: Another big update! We just added the ability to listen to over 40 NOAA Weather Radio stations on the radar! We also added an alert list and fixed a few bugs! - 11/10/2024</p>
-        <p>Version 1.3.0: More features! We added Mesoscale Discussions to the radar, as well as changing Map Type and Storm Report settings too. - 10/30/2024</p>
-        <p>Version 1.2.0: New features incoming! We added real-time lightning strikes, changed our alert & watch color schemes, and improved performance by a ton! - 10/17/2024</p>
-        <p>Version 1.1.8: Another small update! We just added the ability to read out an alert on the radar! As always, we fixed a few bugs as well. - 10/14/2024</p>
-        <p>Version 1.1.7: More updates! We just added Special Marine and Extreme Wind Warnings to the radar! We also squashed a few bugs too. - 10/10/2024</p>
-        <p>Version 1.1.6: Another radar update! We refreshed our hurricane icons, made some performance updates, and fixed some bugs as well. - 10/7/2024</p>
-        <p>Version 1.1.5: New features and bug fixes! We just added hurricane tracks and data into the radar as well as a few bug fixes. - 9/30/2024</p>
-        <p>Version 1.1.0: Another update? You bet! We just integrated SPC Outlooks into the radar as well as a new map type we're calling Deep Dark Mode. - 8/20/2024</p>
-        <p>Version 1.0.5: New feature! We just added real-time tornado, wind, and hail reports to the radar! We also fixed a few bugs as well. - 8/15/2024</p>
-        <p>Version 1.0.0: Radar released! Current features include radar, near-instant alerts, watches, map types, and (a lot of) customization! - 8/10/2024</p>
-    </div>
-</div>
-
-<!-- General Info submenu -->
-<div id="general-info">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="returnToInfoMenu();">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p><b>About Us</b></p>
-        <p>West Georgia Weather, part of TCL Media Group, provides local and national weather alerts to protect lives and property during severe weather events!</p>
-        
-        <p><b>Our Sponsors</b></p>
-        <p>• Maglite</p>
-        <p>• Talk2me</p>
-        
-        <p><b>Contact</b></p>
-        <p>Questions? Email us at: david.westgaweather@gmail.com</p>
-    </div>
-</div>
-
-<!-- Attributions submenu -->
-<div id="attributions">
-    <div class="menu-header">
-        <button class="back-button" style="width: 40px;" onclick="toggleMainMenu('info-menu');"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="exit-button" style="width: 40px;" onclick="toggleMainMenu('');"><i class="fa-solid fa-times"></i></button>
-    </div>
-    <div style="margin-top: 10px;">
-        <p><b> Main Attributions</b></p>
-        <div style="height: 0px;"></div>
-        <p>Built for: <a href="https://xtremewx.com/" target="_blank">Xtreme Weather Discord</a> by <a href="https://xtremewx.com/author/wxtership" target="_blank">@wxtership</a></p>
-<p>Made possible by: <a href="https://x.com/busybird150" target="_blank">BusyBird15</a> & <a href="https://busybird15.github.io/radar" target="_blank">The Weather Team</a></p>
-<p><b> Other Attributions</b></p>
-        
-        <p>Map Tiles: <a href="https://leafletjs.com" target="_blank">Leaflet</a> & <a href="https://www.maptiler.com" target="_blank">MapTiler</a></p>
-        <p>Radar Tiles: <a href="https://rainviewer.com/api.html" target="_blank">RainViewer</a></p>
-        <p>Warnings: <a href="https://www.weather.gov/documentation/services-web-api#/" target="_blank">NWS API</a></p>
-        <p>Watches: <a href="https://www.mesonet.agron.iastate.edu/request/gis/spc_watch.phtml" target="_blank">IEM WW Archive</a></p>
-        <p>Discussions: <a href="https://mapservices.weather.noaa.gov/vector/rest/services/outlooks/spc_mesoscale_discussion/MapServer" target="_blank">ESRI & SPC</a></p>
-        <p>Hurricanes: <a href="https://esri-disasterresponse.hub.arcgis.com/maps/248e7b5827a34b248647afb012c58787/about" target="_blank">ESRI & NHC</a></p>
- <p>Disturbances: <a href="https://mapservices.weather.noaa.gov/tropical/rest/services/tropical/NHC_tropical_weather/MapServer" target="_blank">ESRI & NHC</a></p>
- <p>Reports: <a href="https://www.spc.noaa.gov/climo/reports/" target="_blank">SPC Reports Archive</a></p>
- <p>Outlooks: <a href="https://www.spc.noaa.gov/gis/" target="_blank">SPC GIS Portal</a></p>
-<p>Radio: <a href="https://weatherradio.org" target="_blank">GWES WeatherRadio</a></p>
-    </div>
-</div>
-
-    
-
-    <div id="mapid" style="border-radius: 5px; position: absolute; top: 10px; left: 10px; bottom: 10px; right: 10px;"></div>
-
-<!-- Update the sponsor logo with new image URL -->
-<div id="sponsor-logo">
-    <a href="https://wgtv.com" target="_blank">
-        <img src="https://imgur.com/1yg7pPb.png" alt="WGTV" title="West Georgia TV">
-    </a>
-</div>
-
-<div id="alert-popup" class="alert-popup">
-    <div class="popup-header">
-        <div class="popup-header-title" id="popup-title">Alert Title</div>
-        <button onclick="closeAlertPopup()"><i class="fa-solid fa-times"></i></button>
-    </div>
-    <p id="popup-details"></p>
-    <p id="popup-hazards-impacts"></p>
-    <p id="popup-description" style="margin-bottom: 10px;"></p>
-    <p id="popup-action"></p>
-   <!-- Full-width Play/Pause button -->
-<button id="play-pause-btn" onclick="toggleListen()" style="width: 100%; height: 40px; border-radius: 10px; background-color: #636381; color: white; border: 2px solid white; display: flex; align-items: center; justify-content: center; font-size: 18px;">
-    <i class="fa-solid fa-volume-up" style="margin-right: 8px;"></i> Play Alert
-</button>
- </div>
-    
-    <div>
-      <div id="watch-popup" class="alert-popup">
-        <div class="popup-header">
-            <div class="popup-header-title" id="watch-popup-title">Watch Title</div>
-            <button onclick="closeWatchPopup()"><i class="fa-solid fa-times"></i></button>
-        </div>
-        <p id="watch-popup-details"></p>
-        <p id="watch-popup-probabilities"></p>
-    </div>
-</div>
-
-<div id="dbz-meter">
-    <img src="https://imgur.com/DSJhn45.png" alt="DBZ Scale" title="Radar DBZ Scale">
-</div>
-
-<!-- Alert List Button -->
-<div id="alert-list-button-container">
-    <button id="alert-list-button" onclick="toggleAlertListMenu();">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-    </button>
-</div>
-
-<!-- Alert List Menu -->
-<div id="alert-list-menu">
-    <div class="menu-header">
-        <p class="menu-title">Active Weather Alerts</p>
-        <button class="exit-button" onclick="toggleAlertListMenu();">
-            <i class="fa-solid fa-times"></i>
-        </button>
-    </div>
-    <div id="no-alerts-message" style="display: none; text-align: center; padding: 20px;">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <p>No active alerts</p>
-    </div>
-    <ul id="alert-log"></ul>
-</div>
-
-<script src="script.js"></script>
-
-<script>
-function toggleMainMenu(menuId) {
-    // Get all menus
-    const menus = document.querySelectorAll('[id$="-settings"], [id$="-menu"], [id$="-info"]');
-    
-    if (menuId === '') {
-        // Only hide menus when explicitly closing
-        menus.forEach(menu => menu.classList.remove('active'));
-        return;
-    }
-    
-    const selectedMenu = document.getElementById(menuId);
-    if (selectedMenu) {
-        if (selectedMenu.classList.contains('active')) {
-            // If menu is already active, close it
-            selectedMenu.classList.remove('active');
-        } else {
-            // Hide other menus and show selected one
-            menus.forEach(menu => menu.classList.remove('active'));
-            selectedMenu.classList.add('active');
-        }
-    }
-}
-
-function toggleSubMenu(menuId, action = 'show') {
-    const layersMenu = document.getElementById('layers-menu');
-    const subMenu = document.getElementById(menuId);
-    
-    if (action === 'back') {
-        subMenu.classList.remove('active');
-        layersMenu.classList.add('active');
-    } else {
-        if (subMenu.classList.contains('active')) {
-            subMenu.classList.remove('active');
-            layersMenu.classList.add('active');
-        } else {
-            layersMenu.classList.remove('active');
-            subMenu.classList.add('active');
-        }
-    }
-}
-
-function returnToInfoMenu() {
-    const updatesInfo = document.getElementById('updates-info');
-    const generalInfo = document.getElementById('general-info');
-    const infoMenu = document.getElementById('info-menu');
-
-    updatesInfo.classList.remove('active');
-    generalInfo.classList.remove('active');
-    infoMenu.classList.add('active');
-}
-
-// Placefile functions remain the same
-let activePlacefiles = new Map();
-
-function addPlacefile() {
-    const url = document.getElementById('placefile-url').value.trim();
-    if (!url) return;
-    
-    if (!activePlacefiles.has(url)) {
-        // Create a unique ID for this placefile
-        const id = 'placefile-' + Date.now();
-        
-        // Add to active place files map
-        activePlacefiles.set(url, {
-            id: id,
-            layer: null
-        });
-        
-        // Add to UI list
-        const listDiv = document.getElementById('placefile-list');
-        const placefileItem = document.createElement('div');
-        placefileItem.style.display = 'flex';
-        placefileItem.style.justifyContent = 'space-between';
-        placefileItem.style.alignItems = 'center';
-        placefileItem.style.marginBottom = '10px';
-        placefileItem.innerHTML = `
-            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%;">${url}</span>
-            <button onclick="removePlacefile('${url}')" style="background: none; border: none; color: #ff4444; cursor: pointer;">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-        `;
-        listDiv.appendChild(placefileItem);
-        
-        // Load the placefile
-        loadPlacefile(url);
-    }
-    
-    // Clear input
-    document.getElementById('placefile-url').value = '';
-}
-
-function removePlacefile(url) {
-    const placefile = activePlacefiles.get(url);
-    if (placefile) {
-        if (placefile.layer) {
-            map.removeLayer(placefile.layer);
-        }
-        activePlacefiles.delete(url);
-        
-        // Remove from UI
-        const listDiv = document.getElementById('placefile-list');
-        const items = listDiv.children;
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].textContent.includes(url)) {
-                listDiv.removeChild(items[i]);
-                break;
-            }
-        }
-    }
-}
-
-function loadPlacefile(url) {
-    // Use CORS proxy for Spotter Network feed
-    const corsProxy = 'https://corsproxy.io/?';
-    const fetchUrl = url.includes('spotternetwork.org') ? corsProxy + encodeURIComponent(url) : url;
-    
-    fetch(fetchUrl)
-        .then(response => response.text())
-        .then(data => {
-            console.log('Received placefile data:', data.substring(0, 200)); // Debug first 200 chars
-            const placefile = activePlacefiles.get(url);
-            if (placefile) {
-                // Remove existing layer if it exists
-                if (placefile.layer) {
-                    map.removeLayer(placefile.layer);
-                }
-                
-                const layer = L.layerGroup().addTo(map);
-                placefile.layer = layer;
-                
-                let markersAdded = 0;
-                const lines = data.split('\n');
-                
-                lines.forEach(line => {
-                    line = line.trim();
-                    if (!line || line.startsWith(';')) return;
-                    
-                    const parts = line.split('|');
-                    if (parts.length < 2) return;
-                    
-                    switch (parts[0].toUpperCase()) {
-                        case 'P':
-                            if (parts.length >= 4) {
-                                const lat = parseFloat(parts[1]);
-                                const lon = parseFloat(parts[2]);
-                                
-                                if (!isNaN(lat) && !isNaN(lon)) {
-                                    const marker = L.circleMarker([lat, lon], {
-                                        radius: 6,
-                                        color: '#FF0000',
-                                        fillColor: '#FF0000',
-                                        fillOpacity: 0.8,
-                                        weight: 2
-                                    }).addTo(layer);
-                                    
-                                    if (parts[4]) {
-                                        marker.bindPopup(parts[4]);
-                                    }
-                                    
-                                    markersAdded++;
-                                }
-                            }
-                            break;
-                    }
+                // Hide all tabs
+                contents.forEach(content => {
+                    content.style.display = 'none';
+                    content.classList.remove('active');
                 });
+                tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+                // Show new tab
+                const newTab = document.getElementById(targetId);
+                const newTabLink = document.querySelector(`[data-tab="${targetId}"]`);
                 
-                console.log(`Added ${markersAdded} spotter markers`); // Debug marker count
-                
-                if (markersAdded > 0) {
-                    const bounds = layer.getBounds();
-                    if (bounds.isValid()) {
-                        map.fitBounds(bounds);
-                    }
+                if (newTab && newTabLink) {
+                    newTab.style.display = 'block';
+                    newTab.classList.add('active');
+                    newTabLink.classList.add('active-tab');
+                    activeTab = targetId;
+                    history.replaceState(null, null, `#${targetId.replace('-content', '')}`);
                 }
             }
-        })
-        .catch(error => {
-            console.error('Error loading placefile:', error);
-            const listDiv = document.getElementById('placefile-list');
-            const errorDiv = document.createElement('div');
-            errorDiv.style.color = '#ff4444';
-            errorDiv.textContent = 'Error loading placefile. Retrying...';
-            listDiv.appendChild(errorDiv);
-            setTimeout(() => errorDiv.remove(), 5000);
-            
-            // Auto-retry once after 2 seconds
-            setTimeout(() => loadPlacefile(url), 2000);
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const tabId = tab.getAttribute('data-tab');
+                    switchTab(tabId);
+                }, { passive: false });
+            });
+
+            const hash = window.location.hash.slice(1);
+            switchTab(hash ? `${hash}-content` : 'home-content');
+
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash.slice(1);
+                switchTab(hash ? `${hash}-content` : 'home-content');
+            });
         });
-}
-</script>
+    </script>
+</body>
+</html>
+                switchTab(hash ? `${hash}-content` : 'home-content');
+            });
+        });
+    </script>
 </body>
 </html>
