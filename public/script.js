@@ -121,47 +121,7 @@ setInterval(() => {
         .catch(error => console.error('Error refreshing radar:', error));
 }, 60000); // Refresh every minute
 
-// Tab switching functionality
+// Remove maintenance mode and simplify DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Enforce maintenance mode
-    document.querySelector('.container').style.pointerEvents = 'none';
-    document.getElementById('maintenanceOverlay').style.display = 'flex';
-
-    const tabs = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    function switchTab(tabId) {
-        // Hide all contents first
-        tabContents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
-        });
-
-        // Show and activate selected content
-        const selectedContent = document.getElementById(tabId);
-        if (selectedContent) {
-            selectedContent.style.display = 'block';
-            selectedContent.classList.add('active');
-        }
-
-        // Update active tab styling
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
-        if (selectedTab) {
-            selectedTab.classList.add('active-tab');
-        }
-    }
-
-    // Add click handlers to tabs
-    tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            const tabId = tab.getAttribute('data-tab');
-            switchTab(tabId);
-        });
-    });
-
-    // Set initial active tab
-    const initialTab = document.querySelector('.tab-link').getAttribute('data-tab');
-    switchTab(initialTab);
+    // Initialize any necessary functionality here
 });
