@@ -43,6 +43,19 @@
         .tab-content.active {
             display: block;
         }
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+        .radar-container {
+            position: relative;
+            height: 800px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -55,17 +68,24 @@
 
         <!-- Home Tab -->
         <div id="home" class="tab-content active">
-            <h1>Welcome to EA - TwistcasterLive Media</h1>
-            <div class="content">
+            <div class="center-content">
+                <h1>Welcome to EA - TwistcasterLive Media</h1>
                 <p>Your trusted source for weather coverage and storm chasing in West Georgia.</p>
-                <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media" style="max-width: 100%;">
+                <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media" style="max-width: 100%; margin-top: 20px;">
             </div>
         </div>
 
         <!-- Radar Tab -->
         <div id="radar" class="tab-content">
             <h2>Weather Radar</h2>
-            <div id="mapid" style="height: 600px;"></div>
+            <div class="radar-container">
+                <iframe 
+                    src="https://west-ga-tv-radar.onrender.com/"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
 
         <!-- Live Stream Tab -->
