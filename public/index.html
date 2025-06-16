@@ -21,8 +21,67 @@
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" 
         nonce="random123">
     </script>
+    <style>
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-link {
+            padding: 10px 20px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        .tab-link.active {
+            background: #007bff;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <nav class="nav-tabs">
+            <button class="tab-link active" data-tab="home">Home</button>
+            <button class="tab-link" data-tab="radar">Weather Radar</button>
+            <button class="tab-link" data-tab="stream">Live Stream</button>
+        </nav>
+
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <h1>Welcome to EA - TwistcasterLive Media</h1>
+            <div class="content">
+                <p>Your trusted source for weather coverage and storm chasing in West Georgia.</p>
+                <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media" style="max-width: 100%;">
+            </div>
+        </div>
+
+        <!-- Radar Tab -->
+        <div id="radar" class="tab-content">
+            <h2>Weather Radar</h2>
+            <div id="mapid" style="height: 600px;"></div>
+        </div>
+
+        <!-- Live Stream Tab -->
+        <div id="stream" class="tab-content">
+            <h2>Live Stream</h2>
+            <div class="stream-container" style="position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe 
+                    src="https://www.youtube.com/embed/live_stream?channel=UCQvEZ1q0pS4YoaPWGS8DHeg&autoplay=1"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Single footer section -->
     <div class="ambassador-section">
         <img src="https://imgur.com/wsxCf12.jpg" alt="EA - TwistcasterLive Media Logo">
@@ -35,5 +94,21 @@
     <script src="script.js" defer></script>
     <script src="weather.js" defer></script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-link').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabContent = document.querySelector(`#${button.dataset.tab}`);
+
+                // Remove active class from all tab links and contents
+                document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked tab link and corresponding content
+                button.classList.add('active');
+                tabContent.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

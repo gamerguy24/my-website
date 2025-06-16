@@ -124,4 +124,22 @@ setInterval(() => {
 // Remove maintenance mode and simplify DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize any necessary functionality here
+
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+            // Update active states
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Activate clicked tab
+            tab.classList.add('active');
+            document.getElementById(target).classList.add('active');
+        });
+    });
 });
