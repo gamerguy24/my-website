@@ -127,31 +127,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabContents = document.querySelectorAll('.tab-content');
 
     function switchTab(tabId) {
-        // Hide all contents
-        tabContents.forEach(content => content.style.display = 'none');
+        // Hide all contents first
+        tabContents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
+        });
 
-        // Show selected content
+        // Show and activate selected content
         const selectedContent = document.getElementById(tabId);
         if (selectedContent) {
             selectedContent.style.display = 'block';
+            selectedContent.classList.add('active');
         }
 
-        // Update active tab
+        // Update active tab styling
         tabs.forEach(tab => tab.classList.remove('active-tab'));
-        const activeTab = document.querySelector(`[data-tab="${tabId}"]`);
-        if (activeTab) {
-            activeTab.classList.add('active-tab');
+        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+        if (selectedTab) {
+            selectedTab.classList.add('active-tab');
         }
     }
 
-    // Add click handlers
+    // Add click handlers to tabs
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
             const tabId = tab.getAttribute('data-tab');
             switchTab(tabId);
         });
     });
 
-    // Set initial tab
-    switchTab('home-content');
+    // Set initial active tab
+    const initialTab = document.querySelector('.tab-link').getAttribute('data-tab');
+    switchTab(initialTab);
 });
