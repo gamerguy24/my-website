@@ -123,14 +123,6 @@ setInterval(() => {
 
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Block site access with maintenance overlay
-    const maintenanceOverlay = document.getElementById('maintenanceOverlay');
-    if (maintenanceOverlay) {
-        maintenanceOverlay.style.display = 'flex';
-        document.querySelector('.container').style.pointerEvents = 'none';
-        return; // Stop executing further code since site is in maintenance
-    }
-
     const tabs = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -158,6 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click handlers
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            switchTab(tabId);
+        });
+    });
+
+    // Set initial tab
+    switchTab('home-content');
+});
             const tabId = tab.getAttribute('data-tab');
             switchTab(tabId);
         });
