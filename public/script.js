@@ -128,22 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function switchTab(tabId) {
         // Hide all contents
-        tabContents.forEach(content => {
-            content.style.display = 'none';
-            content.classList.remove('active');
-        });
+        tabContents.forEach(content => content.style.display = 'none');
 
-        // Deactivate all tabs
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-        // Show selected content and activate tab
-        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+        // Show selected content
         const selectedContent = document.getElementById(tabId);
-        
-        if (selectedTab && selectedContent) {
+        if (selectedContent) {
             selectedContent.style.display = 'block';
-            selectedContent.classList.add('active');
-            selectedTab.classList.add('active-tab');
+        }
+
+        // Update active tab
+        tabs.forEach(tab => tab.classList.remove('active-tab'));
+        const activeTab = document.querySelector(`[data-tab="${tabId}"]`);
+        if (activeTab) {
+            activeTab.classList.add('active-tab');
         }
     }
 
@@ -157,21 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial tab
     switchTab('home-content');
-});
-            const tabId = tab.getAttribute('data-tab');
-            switchTab(tabId);
-        });
-    });
-
-    // Set initial tab
-    switchTab('home-content');
-});
-    const overlay = document.getElementById('maintenanceOverlay');
-    if (overlay) {
-        overlay.style.display = 'flex';
-        overlay.style.zIndex = '99999';
-    }
-
-    // Disable all interactive elements behind the overlay
-    document.querySelector('.container').style.pointerEvents = 'none';
 });
