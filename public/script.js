@@ -123,12 +123,20 @@ setInterval(() => {
 
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-link');
-    const contents = document.querySelectorAll('.tab-content');
+    // Block site access with maintenance overlay
+    const maintenanceOverlay = document.getElementById('maintenanceOverlay');
+    if (maintenanceOverlay) {
+        maintenanceOverlay.style.display = 'flex';
+        document.querySelector('.container').style.pointerEvents = 'none';
+        return; // Stop executing further code since site is in maintenance
+    }
 
-    function showTab(tabId) {
-        // Hide all content panels
-        contents.forEach(content => {
+    const tabs = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+        // Hide all contents
+        tabContents.forEach(content => {
             content.style.display = 'none';
             content.classList.remove('active');
         });
@@ -136,36 +144,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // Deactivate all tabs
         tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-        // Show and activate selected tab
+        // Show selected content and activate tab
         const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
         const selectedContent = document.getElementById(tabId);
-
+        
         if (selectedTab && selectedContent) {
-            selectedTab.classList.add('active-tab');
             selectedContent.style.display = 'block';
             selectedContent.classList.add('active');
+            selectedTab.classList.add('active-tab');
         }
     }
 
-    // Add click handlers to tabs
+    // Add click handlers
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
-            showTab(tabId);
+            switchTab(tabId);
         });
     });
 
-    // Show default tab on load
-    showTab('home-content');
+    // Set initial tab
+    switchTab('home-content');
 });
-
-window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.slice(1);
-    switchTab(`${hash}-content`);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure maintenance overlay is visible and prevent it from being closed
     const overlay = document.getElementById('maintenanceOverlay');
     if (overlay) {
         overlay.style.display = 'flex';
