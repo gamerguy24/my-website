@@ -23,7 +23,29 @@
         .tab-content.active {
             display: block;
         }
-        /* ...rest of existing styles... */
+        .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .maintenance-content {
+            text-align: center;
+            background: rgba(50, 50, 50, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        .maintenance-content h1 {
+            color: #ff0000;
+        }
     </style>
     <!-- Update Facebook SDK with proper initialization -->
     <div id="fb-root"></div>
@@ -33,6 +55,16 @@
     </script>
 </head>
 <body>
+    <!-- Maintenance Overlay -->
+    <div class="maintenance-overlay" id="maintenanceOverlay">
+        <div class="maintenance-content">
+            <h1>🚧 Site Under Construction 🚧</h1>
+            <p>Our website is currently under major construction.</p>
+            <p>We apologize for any inconvenience.</p>
+            <p>Please check back later!</p>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <div class="header-content">

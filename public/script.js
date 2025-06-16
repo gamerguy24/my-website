@@ -123,6 +123,10 @@ setInterval(() => {
 
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', () => {
+    // Enforce maintenance mode
+    document.querySelector('.container').style.pointerEvents = 'none';
+    document.getElementById('maintenanceOverlay').style.display = 'flex';
+
     const tabs = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
 
