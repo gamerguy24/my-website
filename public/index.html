@@ -78,7 +78,6 @@
                 <button type="button" class="tab-link" data-tab="home-content">Home</button>
                 <button type="button" class="tab-link" data-tab="team-content">The Weather Team</button>
                 <button type="button" class="tab-link" data-tab="radar-content">Weather Radar</button>
-                <button type="button" class="tab-link" data-tab="scanner-content">Team Scanner</button>
                 <button type="button" class="tab-link" data-tab="alerts-content">Weather Alerts</button>
                 <button type="button" class="tab-link" data-tab="outlook-content">SPC Outlook</button>
                 <button type="button" class="tab-link" data-tab="videos-content">Videos</button>
@@ -245,16 +244,6 @@
                 frameborder="0"
                 allowfullscreen>
             </iframe>
-        </div>
-        <!-- Add Scanner Content -->
-        <div id="scanner-content" class="tab-content">
-            <div class="scanner-container">
-                <h2>EA - TwistcasterLive Media Team Scanner</h2>
-                <div class="scanner-frame">
-                    <h3 style="text-align: center; color: #ffffff;">Coming Soon!</h3>
-                    <p style="text-align: center; color: #ffffff;">Our team scanner feature is currently under development. Check back later!</p>
-                </div>
-            </div>
         </div>
         <!-- Add Audio Alerts Content (add after radar content) -->
         <div id="alerts-content" class="tab-content">
@@ -479,6 +468,17 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="scanner.js" defer></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
+    <script>
+        function closeMaintenance() {
+            document.getElementById('maintenanceOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
     <script src="script.js" defer></script>
     <script src="weather.js" defer></script>
     <script src="scanner.js" defer></script>
