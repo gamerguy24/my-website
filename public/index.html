@@ -111,6 +111,36 @@
             height: auto;
             margin-bottom: 15px;
         }
+        .social-media-footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #333333;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .social-media-footer h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .social-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .social-link img {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -159,6 +189,28 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- Add social media footer -->
+            <div class="social-media-footer">
+                <h3>Follow Us On Social Media</h3>
+                <div class="social-links-grid">
+                    <a href="https://discord.gg/xXTcAJ9Em8" target="_blank" class="social-link">
+                        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord">
+                        <span>Discord</span>
+                    </a>
+                    <a href="https://www.youtube.com/@WGTV1" target="_blank" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/120px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://www.facebook.com/WGTVnow/" target="_blank" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/120px-Facebook_Logo_%282019%29.png" alt="Facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://x.com/WGTV2018" target="_blank" class="social-link">
+                        <img src="https://imgur.com/wsxCf12.jpg" alt="X (Twitter)">
+                        <span>Twitter/X</span>
+                    </a>
                 </div>
             </div>
         </div>
