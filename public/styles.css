@@ -5,7 +5,7 @@ body {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #0f0f0f; /* Modern dark background */
+    background-color: #1a1a1a; /* Lighter black background */
     color: #e0e0e0; /* Softer white text */
 }
 
@@ -44,13 +44,13 @@ body {
 
 /* Content Areas */
 .tab-content {
-    background: #18181b;
+    background: #242424; /* Slightly lighter card background */
     padding: 25px;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     display: none;
     color: #e0e0e0;
-    border: 1px solid #27272a;
+    border: 1px solid #333333;
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -93,7 +93,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    background: #000;
+    background: #121212; /* Keep radar background dark for contrast */
 }
 
 /* Counties Section */
@@ -102,10 +102,10 @@ body {
     text-align: left;
     width: 100%;
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05); /* Slightly more visible on lighter bg */
     padding: 2rem;
     border-radius: 16px;
-    border: 1px solid #27272a;
+    border: 1px solid #333333;
 }
 
 .counties-section h2 {
@@ -135,12 +135,12 @@ body {
 .social-media-footer {
     margin: 40px auto;
     padding: 30px;
-    background: #18181b;
+    background: #242424; /* Match tab content background */
     border-radius: 16px;
     width: 100%;
     max-width: 800px;
     text-align: center;
-    border: 1px solid #27272a;
+    border: 1px solid #333333;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
@@ -190,12 +190,12 @@ body {
 }
 
 .team-member, .sponsor-card {
-    background: #27272a;
+    background: #2d2d2d; /* Lighter card background */
     border-radius: 16px;
     padding: 25px;
     text-align: center;
     color: #e0e0e0;
-    border: 1px solid #3f3f46;
+    border: 1px solid #404040;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
