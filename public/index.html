@@ -167,21 +167,22 @@
                 height: 500px; /* Smaller height for mobile */
             }
 
-            .tab-link {
-                padding: 12px 10px;
-                font-size: 14px;
-                width: 48%; /* 2 buttons per row roughly */
-                margin-bottom: 5px;
-                /* Ensure text/content is centered */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
+            .nav-tabs {
+                flex-direction: column; /* Stack tabs vertically */
+                align-items: center; /* Center tabs horizontally */
+                gap: 10px;
+                width: 100%;
             }
 
-            .nav-tabs {
-                gap: 5px;
-                justify-content: center; /* Explicitly center the flex container items */
+            .tab-link {
+                width: 90%; /* Wide buttons for easier tapping */
+                max-width: 350px; /* Prevent too wide on larger phones */
+                padding: 15px; /* Larger touch target */
+                font-size: 16px;
+                margin: 0; /* Remove margin since gap handles spacing */
+                text-align: center;
+                justify-content: center;
+                display: flex; /* Ensure flex properties work */
             }
 
             .team-grid, .sponsor-grid {
@@ -196,27 +197,30 @@
             .social-media-footer {
                 padding: 15px;
                 margin: 20px auto;
-                max-width: 95%; /* Ensure it doesn't touch edges */
+                width: 90%;
+                max-width: 100%;
             }
 
             .social-media-footer h3 {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
+                font-size: 1.2rem;
+                margin-bottom: 15px;
             }
 
             .social-links-grid {
                 gap: 10px;
-                grid-template-columns: repeat(2, 1fr); /* 2 columns for compact look */
+                grid-template-columns: repeat(2, 1fr); /* 2 columns */
             }
 
             .social-link {
-                font-size: 0.85rem;
-                padding: 5px;
+                font-size: 0.9rem;
+                padding: 8px;
+                background: rgba(255, 255, 255, 0.05); /* Slight background for visibility */
+                border-radius: 8px;
             }
 
             .social-link img {
-                width: 20px;
-                height: 20px;
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
