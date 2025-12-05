@@ -27,6 +27,8 @@
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow tabs to wrap on mobile */
+            justify-content: center; /* Center tabs */
         }
         .tab-link {
             padding: 10px 20px;
@@ -34,6 +36,8 @@
             background: #333;
             color: white;
             cursor: pointer;
+            flex: 1 1 auto; /* Allow buttons to resize */
+            min-width: 120px; /* Ensure buttons don't get too small */
         }
         .tab-link.active {
             background: #007bff;
@@ -43,6 +47,11 @@
         }
         .tab-content.active {
             display: block;
+            animation: fadeIn 0.3s ease-in; /* Smooth transition */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .center-content {
             display: flex;
@@ -51,6 +60,7 @@
             justify-content: center;
             min-height: 60vh;
             text-align: center;
+            padding: 0 10px; /* Add padding for mobile edges */
         }
         .radar-container {
             position: relative;
@@ -145,6 +155,36 @@
             width: 30px;
             height: 30px;
             border-radius: 5px;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .counties-section div {
+                grid-template-columns: 1fr; /* Stack county lists */
+            }
+            
+            .radar-container {
+                height: 500px; /* Smaller height for mobile */
+            }
+
+            .tab-link {
+                padding: 12px 10px;
+                font-size: 14px;
+                width: 48%; /* 2 buttons per row roughly */
+                margin-bottom: 5px;
+            }
+
+            .nav-tabs {
+                gap: 5px;
+            }
+
+            .team-grid, .sponsor-grid {
+                grid-template-columns: 1fr; /* Single column for cards */
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
