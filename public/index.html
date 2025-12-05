@@ -172,10 +172,16 @@
                 font-size: 14px;
                 width: 48%; /* 2 buttons per row roughly */
                 margin-bottom: 5px;
+                /* Ensure text/content is centered */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
             }
 
             .nav-tabs {
                 gap: 5px;
+                justify-content: center; /* Explicitly center the flex container items */
             }
 
             .team-grid, .sponsor-grid {
@@ -184,6 +190,33 @@
 
             h1 {
                 font-size: 1.8rem;
+            }
+
+            /* Social Media Mobile Adjustments */
+            .social-media-footer {
+                padding: 15px;
+                margin: 20px auto;
+                max-width: 95%; /* Ensure it doesn't touch edges */
+            }
+
+            .social-media-footer h3 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+
+            .social-links-grid {
+                gap: 10px;
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for compact look */
+            }
+
+            .social-link {
+                font-size: 0.85rem;
+                padding: 5px;
+            }
+
+            .social-link img {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
