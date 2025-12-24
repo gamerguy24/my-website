@@ -170,10 +170,48 @@
             display: block;
         }
 
+        /* New: Santa wrapper with countdown */
+        .santa-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .santa-map {
+            flex: 1 1 700px;
+            min-width: 300px;
+        }
+        .santa-countdown {
+            flex: 0 0 400px;
+            min-width: 260px;
+        }
+        .santa-countdown iframe {
+            width: 100%;
+            height: 232px;
+            border: 0;
+            display: block;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         /* Mobile override for santa embed */
         @media (max-width: 768px) {
             .santa-embed iframe {
                 height: 600px;
+            }
+            .santa-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .santa-countdown {
+                width: 100%;
+                flex: 1 1 auto;
+            }
+            .santa-map {
+                width: 100%;
             }
         }
 
@@ -606,13 +644,21 @@
         <div id="santa" class="tab-content">
             <div class="center-content">
                 <h2>Santa Tracker</h2>
-                <div class="santa-embed">
-                    <iframe
-                        src="https://www.noradsanta.org/embed.html"
-                        allowfullscreen
-                        mozallowfullscreen
-                        webkitallowfullscreen
-                        title="NTS Tracking Map"></iframe>
+                <!-- replaced single embed with map + countdown -->
+                <div class="santa-wrapper">
+                    <div class="santa-map santa-embed">
+                        <iframe
+                            src="https://www.noradsanta.org/embed.html"
+                            allowfullscreen
+                            mozallowfullscreen
+                            webkitallowfullscreen
+                            title="NTS Tracking Map"></iframe>
+                    </div>
+                    <div class="santa-countdown" aria-label="Santa countdown clock">
+                        <iframe
+                            src="https://www.noradsanta.org/countdownClock.html"
+                            title="NTS Countdown Clock"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
