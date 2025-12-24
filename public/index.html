@@ -157,50 +157,50 @@
             border-radius: 5px;
         }
 
-        /* Santa embed sizing */
+        /* Santa embed sizing (increased) */
         .santa-embed {
-            max-width: 1400px;
+            max-width: 1600px;
             width: 100%;
             margin: 0 auto;
         }
         .santa-embed iframe {
             width: 100%;
-            height: 900px;
+            height: 1200px; /* increased map height */
             border: 0;
             display: block;
         }
 
-        /* New: Santa wrapper with countdown */
+        /* New: Santa wrapper with larger countdown */
         .santa-wrapper {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: flex-start;
             justify-content: center;
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             flex-wrap: wrap;
         }
         .santa-map {
-            flex: 1 1 700px;
-            min-width: 300px;
+            flex: 2 1 900px; /* give map more space */
+            min-width: 360px;
         }
         .santa-countdown {
-            flex: 0 0 400px;
-            min-width: 260px;
+            flex: 0 0 420px; /* wider countdown pane */
+            min-width: 320px;
         }
         .santa-countdown iframe {
             width: 100%;
-            height: 232px;
+            height: 320px; /* larger countdown */
             border: 0;
             display: block;
             border-radius: 8px;
             overflow: hidden;
         }
 
-        /* Mobile override for santa embed */
+        /* Mobile override for santa embed (adjusted) */
         @media (max-width: 768px) {
             .santa-embed iframe {
-                height: 600px;
+                height: 800px; /* reduced for mobile but larger than before */
             }
             .santa-wrapper {
                 flex-direction: column;
@@ -212,6 +212,9 @@
             }
             .santa-map {
                 width: 100%;
+            }
+            .santa-countdown iframe {
+                height: 280px; /* mobile countdown height */
             }
         }
 
