@@ -284,6 +284,44 @@
                 height: 24px;
             }
         }
+
+        /* New Year countdown styling (replaces Santa styles) */
+        .newyear-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+        }
+        .countdown-display {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .count-item {
+            background: #333333;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+        .count-item span {
+            display: block;
+            font-size: 48px;
+            font-weight: 700;
+        }
+        .count-item small {
+            display:block;
+            margin-top:8px;
+            font-size:14px;
+            opacity:0.85;
+        }
+        @media (max-width: 768px) {
+            .count-item span { font-size: 36px; }
+            .count-item { padding: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -298,7 +336,7 @@
             <button class="tab-link" data-tab="faithcast">VD Project</button>
             <button class="tab-link" data-tab="outdoorsmen">WG Outdoorsmen</button>
             <button class="tab-link" data-tab="spc">SPC Outlook</button>
-            <button class="tab-link" data-tab="santa">Santa Tracker</button>
+            <button class="tab-link" data-tab="newyear">New Year's Counter</button>
         </nav>
 
         <div class="alert-banner">
@@ -643,25 +681,18 @@
             </div>
         </div>
 
-        <!-- Santa Tracker Tab -->
-        <div id="santa" class="tab-content">
+        <!-- New Year's Counter Tab -->
+        <div id="newyear" class="tab-content">
             <div class="center-content">
-                <h2>Santa Tracker</h2>
-                <!-- replaced single embed with map + countdown -->
-                <div class="santa-wrapper">
-                    <div class="santa-map santa-embed">
-                        <iframe
-                            src="https://www.noradsanta.org/embed.html"
-                            allowfullscreen
-                            mozallowfullscreen
-                            webkitallowfullscreen
-                            title="NTS Tracking Map"></iframe>
+                <h2>New Year's Countdown</h2>
+                <div class="newyear-wrapper" aria-live="polite">
+                    <div class="countdown-display" role="timer" aria-atomic="true">
+                        <div class="count-item"><span id="ny-days">0</span><small>Days</small></div>
+                        <div class="count-item"><span id="ny-hours">0</span><small>Hours</small></div>
+                        <div class="count-item"><span id="ny-mins">0</span><small>Minutes</small></div>
+                        <div class="count-item"><span id="ny-secs">0</span><small>Seconds</small></div>
                     </div>
-                    <div class="santa-countdown" aria-label="Santa countdown clock">
-                        <iframe
-                            src="https://www.noradsanta.org/countdownClock.html"
-                            title="NTS Countdown Clock"></iframe>
-                    </div>
+                    <p id="ny-message" style="margin-top:20px; font-size:18px;"></p>
                 </div>
             </div>
         </div>
@@ -694,6 +725,46 @@
                 tabContent.classList.add('active');
             });
         });
+
+        // New Year countdown script
+        (function() {
+            const elDays = document.getElementById('ny-days');
+            const elHours = document.getElementById('ny-hours');
+            const elMins = document.getElementById('ny-mins');
+            const elSecs = document.getElementById('ny-secs');
+            const msg = document.getElementById('ny-message');
+
+            function nextJan1() {
+                const now = new Date();
+                return new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
+            }
+
+            let target = nextJan1();
+
+            function updateCountdown() {
+                const now = new Date();
+                let diff = target - now;
+                if (diff <= 0) {
+                    // Celebrate and roll target to next year
+                    msg.textContent = "🎉 Happy New Year! 🎉";
+                    target = nextJan1();
+                    diff = target - now;
+                } else {
+                    msg.textContent = "";
+                }
+                const secs = Math.floor(diff / 1000) % 60;
+                const mins = Math.floor(diff / (1000 * 60)) % 60;
+                const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                elDays.textContent = String(days);
+                elHours.textContent = String(hours).padStart(2, '0');
+                elMins.textContent = String(mins).padStart(2, '0');
+                elSecs.textContent = String(secs).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
     </script>
     
     <!--Start of Tawk.to Script-->
