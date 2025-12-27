@@ -322,6 +322,32 @@
             .count-item span { font-size: 36px; }
             .count-item { padding: 15px; }
         }
+
+        /* New: App download buttons for VD Project tab */
+        .app-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: transform .08s ease;
+        }
+        .download-button:hover { transform: translateY(-2px); }
+        .download-button.desktop { background: #6f42c1; } /* purple */
+        .download-button.android { background: #3ddc84; color: #000; } /* android green */
+        @media (max-width: 480px) {
+            .download-button { width: 100%; justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -555,6 +581,16 @@
         <div id="faithcast" class="tab-content">
             <div class="center-content">
                 <h2>VD Project - Vortex Dome</h2>
+                <!-- { changed code } - App download buttons -->
+                <div class="app-buttons" aria-hidden="false">
+                    <a class="download-button desktop" href="https://twistcasterlivemedia.itch.io/vortexdomewx" target="_blank" rel="noopener noreferrer">
+                        Download Desktop App
+                    </a>
+                    <a class="download-button android" href="https://twistcasterlivemedia.itch.io/twistcasterlivemedia-app" target="_blank" rel="noopener noreferrer">
+                        Download Android App
+                    </a>
+                </div>
+
                 <div style="max-width: 800px; margin: 0 auto; padding: 20px; text-align: left;">
                     <img src="https://imgur.com/EGmhxpD.jpg" alt="Vortex Dome" style="width: 100%; max-width: 600px; margin: 20px auto; display: block; border-radius: 10px;">
                     
