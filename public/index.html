@@ -751,6 +751,16 @@
     <script src="weather.js" defer></script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
     <script>
+        function loadScoreStreamWidget() {
+            const scriptSrc = "https://scorestream.com/apiJsCdn/widgets/embed.js";
+            document.querySelectorAll(`script[src="${scriptSrc}"]`).forEach(script => script.remove());
+            const script = document.createElement("script");
+            script.async = true;
+            script.type = "text/javascript";
+            script.src = scriptSrc;
+            document.body.appendChild(script);
+        }
+
         // Tab functionality
         document.querySelectorAll('.tab-link').forEach(button => {
             button.addEventListener('click', () => {
@@ -763,6 +773,10 @@
                 // Add active class to the clicked tab link and corresponding content
                 button.classList.add('active');
                 tabContent.classList.add('active');
+
+                if (button.dataset.tab === "sports") {
+                    loadScoreStreamWidget();
+                }
             });
         });
 
