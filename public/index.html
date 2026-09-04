@@ -682,40 +682,23 @@
 
         <!-- Radar Tab -->
         <div id="radar" class="tab-content">
-            <div class="center-content">
-                <div class="launch-hero">
-                    <span class="vortex-badge">📡 Live NEXRAD Imagery</span>
-                    <div class="launch-icon">🛰️</div>
-                    <h2>TwistcasterLive Radar</h2>
-                    <p>
-                        Our own full-screen interactive radar. Live NEXRAD imagery, storm cell
-                        tracking, and active watches and warnings for West Georgia, East Alabama,
-                        and anywhere else you need to look.
-                    </p>
-
-                    <a class="btn btn-primary launch-cta" href="https://radar.twistcasterlivemedia.com/" target="_blank" rel="noopener noreferrer">
-                        Open the Radar <span aria-hidden="true">↗</span>
-                    </a>
-                    <span class="launch-note">Opens radar.twistcasterlivemedia.com in a new tab</span>
-
-                    <div class="vortex-features">
-                        <div class="vortex-feature">
-                            <div class="vf-icon">🌧️</div>
-                            <strong>Live Reflectivity</strong>
-                            <span>Smooth, high-resolution radar updated continuously.</span>
-                        </div>
-                        <div class="vortex-feature">
-                            <div class="vf-icon">🚨</div>
-                            <strong>Warning Polygons</strong>
-                            <span>NWS watches and warnings plotted the moment they issue.</span>
-                        </div>
-                        <div class="vortex-feature">
-                            <div class="vf-icon">📱</div>
-                            <strong>Works Anywhere</strong>
-                            <span>Full-screen on desktop, tablet, and phone.</span>
-                        </div>
-                    </div>
+            <div class="radar-head">
+                <div class="radar-head-text">
+                    <h2>Weather Radar</h2>
+                    <p>Live NEXRAD imagery, storm tracking, and active watches and warnings. Sign in below with your free Vortex Radar account.</p>
                 </div>
+                <a class="btn radar-fullscreen" href="https://radar.twistcasterlivemedia.com/" target="_blank" rel="noopener noreferrer">
+                    Open Full Screen <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+            <div class="radar-container">
+                <iframe
+                    src="https://radar.twistcasterlivemedia.com/"
+                    title="TwistcasterLive Radar"
+                    frameborder="0"
+                    allow="geolocation; fullscreen"
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 

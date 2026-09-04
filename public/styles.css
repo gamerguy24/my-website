@@ -507,52 +507,69 @@ img { max-width: 100%; }
 .vortex-feature span { color: var(--text-muted); font-size: 0.92rem; }
 
 /* ---------------------------------------------------------------
-   Launch hero (Weather Radar tab — links out to our own radar)
+   Weather Radar tab — embedded TwistcasterLive radar
    --------------------------------------------------------------- */
-.launch-hero {
+.radar-head {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: space-between;
     gap: 20px;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 0;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-.launch-icon {
-    width: 96px;
-    height: 96px;
-    border-radius: 26px;
-    background: var(--brand-grad);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 52px;
-    box-shadow: 0 12px 40px var(--brand-glow);
+.radar-head-text h2 {
+    margin: 0 0 4px;
 }
 
-.launch-hero h2 {
-    font-size: 2.1rem;
-    margin: 0;
-}
-
-.launch-hero p {
+.radar-head-text p {
     color: var(--text-muted);
-    font-size: 1.08rem;
     margin: 0;
-    max-width: 620px;
+    font-size: 1rem;
 }
 
-.launch-cta {
-    font-size: 1.05rem;
-    padding: 15px 30px;
+.radar-fullscreen {
+    flex-shrink: 0;
+    padding: 11px 20px;
+    font-size: 0.95rem;
 }
 
-.launch-note {
-    color: var(--text-dim);
-    font-size: 0.85rem;
-    margin-top: -12px;
+.radar-fullscreen:hover {
+    background: var(--surface-3);
+    border-color: var(--border-strong);
+}
+
+.radar-container {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    background: #0a0c11;
+}
+
+.radar-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .radar-head {
+        align-items: stretch;
+        gap: 14px;
+    }
+    .radar-fullscreen {
+        justify-content: center;
+    }
+    .radar-container {
+        height: 520px;
+    }
 }
 
 /* ---------------------------------------------------------------
@@ -680,7 +697,7 @@ img { max-width: 100%; }
 
 @media (max-width: 768px) {
     .vd-page { gap: 34px; }
-    .vd-hero h2, .launch-hero h2 { font-size: 1.7rem; }
+    .vd-hero h2 { font-size: 1.7rem; }
     .vd-mission { padding: 22px; }
 }
 
