@@ -25,11 +25,6 @@
     <style>
         /* Layout for nav-tabs, tab-link, tab-content and center-content
            is defined in styles.css (modern theme). */
-        .radar-container {
-            position: relative;
-            height: 800px;
-            width: 100%;
-        }
         .counties-section div {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -103,10 +98,6 @@
         @media (max-width: 768px) {
             .counties-section div {
                 grid-template-columns: 1fr; /* Stack county lists */
-            }
-
-            .radar-container {
-                height: 500px; /* Smaller height for mobile */
             }
 
             .team-grid, .sponsor-grid {
@@ -191,33 +182,6 @@
         @media (max-width: 768px) {
             .count-item span { font-size: 36px; }
             .count-item { padding: 15px; }
-        }
-
-        /* New: App download buttons for VD Project tab */
-        .app-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 13px 24px;
-            border-radius: 999px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            transition: transform .15s cubic-bezier(0.22,1,0.36,1), box-shadow .2s ease;
-        }
-        .download-button:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,0.4); }
-        .download-button.desktop { background: linear-gradient(135deg, #7c5cff, #6f42c1); } /* purple */
-        .download-button.android { background: linear-gradient(135deg, #3ddc84, #2fb872); color: #04231a; } /* android green */
-        @media (max-width: 480px) {
-            .download-button { width: 100%; justify-content: center; }
         }
 
         /* SPC outlook tab — variables scoped so they don't clobber the global theme */
@@ -718,14 +682,40 @@
 
         <!-- Radar Tab -->
         <div id="radar" class="tab-content">
-            <h2>Weather Radar</h2>
-            <div class="radar-container">
-                <iframe
-                    src="https://new-website-radar.onrender.com/"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
+            <div class="center-content">
+                <div class="launch-hero">
+                    <span class="vortex-badge">📡 Live NEXRAD Imagery</span>
+                    <div class="launch-icon">🛰️</div>
+                    <h2>TwistcasterLive Radar</h2>
+                    <p>
+                        Our own full-screen interactive radar. Live NEXRAD imagery, storm cell
+                        tracking, and active watches and warnings for West Georgia, East Alabama,
+                        and anywhere else you need to look.
+                    </p>
+
+                    <a class="btn btn-primary launch-cta" href="https://radar.twistcasterlivemedia.com/" target="_blank" rel="noopener noreferrer">
+                        Open the Radar <span aria-hidden="true">↗</span>
+                    </a>
+                    <span class="launch-note">Opens radar.twistcasterlivemedia.com in a new tab</span>
+
+                    <div class="vortex-features">
+                        <div class="vortex-feature">
+                            <div class="vf-icon">🌧️</div>
+                            <strong>Live Reflectivity</strong>
+                            <span>Smooth, high-resolution radar updated continuously.</span>
+                        </div>
+                        <div class="vortex-feature">
+                            <div class="vf-icon">🚨</div>
+                            <strong>Warning Polygons</strong>
+                            <span>NWS watches and warnings plotted the moment they issue.</span>
+                        </div>
+                        <div class="vortex-feature">
+                            <div class="vf-icon">📱</div>
+                            <strong>Works Anywhere</strong>
+                            <span>Full-screen on desktop, tablet, and phone.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -900,57 +890,77 @@
             </div>
         </div>
 
-        <!-- Add Faithcast Television Tab -->
+        <!-- VD Project Tab -->
         <div id="faithcast" class="tab-content">
-            <div class="center-content">
-                <h2>VD Project - Vortex Dome</h2>
-                <!-- { changed code } - App download buttons -->
-                <div class="app-buttons" aria-hidden="false">
-                    <a class="download-button desktop" href="https://twistcasterlivemedia.itch.io/vortexdomewx" target="_blank" rel="noopener noreferrer">
-                        Download Desktop App
-                    </a>
-                    <a class="download-button android" href="https://twistcasterlivemedia.itch.io/twistcasterlivemedia-app" target="_blank" rel="noopener noreferrer">
-                        Download Android App
-                    </a>
-                </div>
+            <div class="vd-page">
+                <header class="vd-hero">
+                    <span class="vortex-badge">🌀 Research &amp; Development</span>
+                    <h2>VD Project — Vortex Dome</h2>
+                    <p>
+                        Our long-running effort to advance storm chasing technology and safety —
+                        purpose-built hardware, live data collection, and real-time monitoring
+                        from inside the storm.
+                    </p>
+                </header>
 
-                <div style="max-width: 800px; margin: 0 auto; padding: 20px; text-align: left;">
-                    <img src="https://imgur.com/EGmhxpD.jpg" alt="Vortex Dome" style="width: 100%; max-width: 600px; margin: 20px auto; display: block; border-radius: 10px;">
+                <figure class="vd-figure">
+                    <img src="https://imgur.com/EGmhxpD.jpg" alt="The Vortex Dome storm chasing platform in the field" loading="lazy">
+                    <figcaption>The Vortex Dome — our storm chasing and data collection platform.</figcaption>
+                </figure>
 
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 20px 0;">
+                <section class="vd-section">
+                    <h3>Project Overview</h3>
+                    <div class="vd-video">
                         <iframe
                             src="https://www.youtube.com/embed/uXEJAkY0XQE"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            title="Vortex Dome project overview"
                             frameborder="0"
+                            loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
                     </div>
+                </section>
 
-                    <p style="font-size: 18px; line-height: 1.6;">
-                        The Vortex Dome Project represents our commitment to advancing storm chasing technology and safety.
+                <section class="vd-section">
+                    <h3>Project Focus</h3>
+                    <div class="vd-grid">
+                        <div class="vd-card">
+                            <div class="vd-card-icon">🌪️</div>
+                            <strong>Advanced Storm Tracking</strong>
+                            <span>Systems that keep us positioned on the storm, not chasing behind it.</span>
+                        </div>
+                        <div class="vd-card">
+                            <div class="vd-card-icon">📊</div>
+                            <strong>Weather Data Collection</strong>
+                            <span>Field measurements gathered where fixed stations can't reach.</span>
+                        </div>
+                        <div class="vd-card">
+                            <div class="vd-card-icon">🛡️</div>
+                            <strong>Chaser Safety Innovations</strong>
+                            <span>Hardening the platform so the team can work closer, safely.</span>
+                        </div>
+                        <div class="vd-card">
+                            <div class="vd-card-icon">📡</div>
+                            <strong>Real-Time Monitoring</strong>
+                            <span>Live telemetry streamed back while the storm is still on the ground.</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="vd-mission">
+                    <h3>Our Mission</h3>
+                    <p>
+                        We are dedicated to improving storm tracking capabilities and ensuring the
+                        safety of our storm chasing team while gathering crucial weather data for
+                        the communities we cover.
                     </p>
+                </section>
 
-                    <h3 style="margin-top: 30px;">Project Focus:</h3>
-                    <ul style="font-size: 18px; line-height: 1.8; margin-left: 20px;">
-                        <li>Advanced storm tracking systems</li>
-                        <li>Weather data collection</li>
-                        <li>Storm chaser safety innovations</li>
-                        <li>Real-time weather monitoring</li>
-                    </ul>
-
-                    <div style="background: var(--surface-2); padding: 25px; border-radius: 14px; margin-top: 30px; color: var(--text); border: 1px solid var(--border);">
-                        <h3 style="text-align: center; margin-bottom: 20px;">Our Mission</h3>
-                        <p style="font-size: 18px; line-height: 1.6;">
-                            We are dedicated to improving storm tracking capabilities and ensuring the safety of our storm chasing team while gathering crucial weather data.
-                        </p>
-                    </div>
-
-                    <div style="margin-top: 40px; text-align: center;">
-                        <h3>Follow Our Progress</h3>
-                        <p style="margin: 15px 0;">Stay tuned for updates on our latest storm chasing missions and technological developments.</p>
-                    </div>
-                </div>
+                <section class="vd-section vd-follow">
+                    <h3>Follow Our Progress</h3>
+                    <p>Stay tuned for updates on our latest storm chasing missions and technological developments.</p>
+                </section>
             </div>
         </div>
 
