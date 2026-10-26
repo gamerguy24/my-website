@@ -3,228 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwistcasterLive Media — West Georgia &amp; East Alabama Weather</title>
+    <meta name="description" content="Weather coverage and storm chasing across West Georgia and East Alabama. Live coverage, the Vortex Radar app, and severe weather updates from TwistcasterLive Media.">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Add modern font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Ensure this links to styles.css in the same directory -->
-    <link rel="stylesheet" href="styles.css?v=20260904">
-
-    <!-- Cloudflare's automatic platform optimization -->
-    <meta name="cf-2fa-verify" content="true">
-
-    <!-- Update Facebook SDK with proper initialization -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
-        nonce="random123">
-    </script>
-    <style>
-        /* Layout for nav-tabs, tab-link, tab-content and center-content
-           is defined in styles.css (modern theme). */
-        .counties-section div {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        /* counties-section, alert-banner, team, sponsor and social-footer
-           styles live in styles.css (modern theme). */
-
-        /* Santa embed sizing (increased) */
-        .santa-embed {
-            max-width: 2000px;          /* larger max width */
-            width: 100%;
-            margin: 0 auto;
-        }
-        .santa-embed iframe {
-            width: 100%;
-            height: 1400px;            /* bigger map height */
-            border: 0;
-            display: block;
-        }
-
-        /* Santa wrapper with larger countdown */
-        .santa-wrapper {
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-            justify-content: center;
-            max-width: 1800px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-        .santa-map {
-            flex: 3 1 1100px;          /* give map more priority/space */
-            min-width: 480px;
-        }
-        .santa-countdown {
-            flex: 0 0 480px;           /* wider countdown pane */
-            min-width: 360px;
-        }
-        .santa-countdown iframe {
-            width: 100%;
-            height: 420px;             /* larger countdown */
-            border: 0;
-            display: block;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Mobile override for santa embed (adjusted) */
-        @media (max-width: 768px) {
-            .santa-embed iframe {
-                height: 1000px;       /* mobile map height */
-            }
-            .santa-wrapper {
-                flex-direction: column;
-                gap: 18px;
-            }
-            .santa-countdown {
-                width: 100%;
-                flex: 1 1 auto;
-            }
-            .santa-map {
-                width: 100%;
-            }
-            .santa-countdown iframe {
-                height: 360px;        /* mobile countdown height */
-            }
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            .counties-section div {
-                grid-template-columns: 1fr; /* Stack county lists */
-            }
-
-            .team-grid, .sponsor-grid {
-                grid-template-columns: 1fr; /* Single column for cards */
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            /* Social Media Mobile Adjustments */
-            .social-media-footer {
-                padding: 15px;
-                margin: 20px auto;
-                width: 90%;
-                max-width: 100%;
-            }
-
-            .social-media-footer h3 {
-                font-size: 1.2rem;
-                margin-bottom: 15px;
-            }
-
-            .social-links-grid {
-                gap: 10px;
-                grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            }
-
-            .social-link {
-                font-size: 0.9rem;
-                padding: 8px;
-                background: rgba(255, 255, 255, 0.05); /* Slight background for visibility */
-                border-radius: 8px;
-            }
-
-            .social-link img {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        /* New Year countdown styling (replaces Santa styles) */
-        .newyear-wrapper {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-            padding: 30px;
-        }
-        .countdown-display {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .count-item {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 20px 30px;
-            border-radius: 14px;
-            min-width: 120px;
-        }
-        .count-item span {
-            background: var(--brand-grad);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .count-item span {
-            display: block;
-            font-size: 48px;
-            font-weight: 700;
-        }
-        .count-item small {
-            display:block;
-            margin-top:8px;
-            font-size:14px;
-            opacity:0.85;
-        }
-        @media (max-width: 768px) {
-            .count-item span { font-size: 36px; }
-            .count-item { padding: 15px; }
-        }
-
-    </style>
+    <link rel="preload" as="image" href="img/hero-supercell.webp">
+    <link rel="stylesheet" href="styles.css?v=20261026b">
 </head>
 <body>
-    <div class="container">
-        <header class="site-header">
-            <div class="brand">
-                <img src="https://imgur.com/o7lVbCO.jpg" alt="TwistcasterLive Media logo" class="brand-logo">
-                <span class="brand-title">TwistcasterLive Media</span>
-            </div>
-            <p class="brand-sub">Weather coverage &amp; storm chasing across West Georgia and East Alabama</p>
-        </header>
+    <!-- Icon sprite (Simple Icons, CC0) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.350 9.101 11.647Z"/></symbol>
+        <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></symbol>
+        <symbol id="i-rumble" viewBox="0 0 24 24"><path d="M14.4528 13.5458c.8064-.6542.9297-1.8381.2756-2.6445a1.8802 1.8802 0 0 0-.2756-.2756 21.2127 21.2127 0 0 0-4.3121-2.776c-1.066-.51-2.256.2-2.4261 1.414a23.5226 23.5226 0 0 0-.14 5.5021c.116 1.23 1.292 1.964 2.372 1.492a19.6285 19.6285 0 0 0 4.5062-2.704v-.008zm6.9322-5.4002c2.0335 2.228 2.0396 5.637.014 7.8723A26.1487 26.1487 0 0 1 8.2946 23.846c-2.6848.6713-5.4168-.914-6.1662-3.5781-1.524-5.2002-1.3-11.0803.17-16.3045.772-2.744 3.3521-4.4661 6.0102-3.832 4.9242 1.174 9.5443 4.196 13.0764 8.0121v.002z"/></symbol>
+    </svg>
 
-        <nav class="nav-tabs">
-            <button class="tab-link active" data-tab="home">Home</button>
-            <button class="tab-link" data-tab="radar">Weather Radar</button>
-            <button class="tab-link" data-tab="vortex">Vortex Radar</button>
-            <button class="tab-link" data-tab="stream">Live Stream</button>
-            <button class="tab-link" data-tab="team">Meet The Team</button>
-            <button class="tab-link" data-tab="sponsors">Our Sponsors</button>
-            <button class="tab-link" data-tab="past-sponsors">Past Sponsors</button>
-            <button class="tab-link" data-tab="faithcast">VD Project</button>
-            <button class="tab-link" data-tab="outdoorsmen">WG Outdoorsmen</button>
-            <button class="tab-link" data-tab="sports">Sports</button>
-            <button class="tab-link" data-tab="newyear" style="display:none;">New Year's Counter</button>
-        </nav>
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#home" aria-label="TwistcasterLive Media home">
+                <img src="logo.webp" alt="TwistcasterLive Media Group" width="76" height="46">
+            </a>
 
-        <div class="alert-banner">
-            🚨 For breaking weather updates, follow us on our social media platforms! 🚨
+            <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav id="site-nav" class="nav" aria-label="Main">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#stream">Watch Live</a></li>
+                    <li><a class="nav-link" href="#vortex">Vortex Radar</a></li>
+                    <li><a class="nav-link" href="#team">Team</a></li>
+                    <li class="has-menu">
+                        <button class="nav-link" aria-expanded="false">Sponsors<span class="caret" aria-hidden="true"></span></button>
+                        <ul class="submenu">
+                            <li><a href="#sponsors">Our Sponsors</a></li>
+                            <li><a href="#past-sponsors">Past Sponsors</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-menu">
+                        <button class="nav-link" aria-expanded="false">More<span class="caret" aria-hidden="true"></span></button>
+                        <ul class="submenu">
+                            <li><a href="#faithcast">VD Project</a></li>
+                            <li><a href="#outdoorsmen">WG Outdoorsmen</a></li>
+                            <li><a href="#sports">Sports</a></li>
+                            <li hidden><a href="#newyear">New Year</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <!-- Home Tab -->
-        <div id="home" class="tab-content active">
-            <div class="center-content">
-                <h1>Welcome to TwistcasterLive Media</h1>
-                <p>Your trusted source for weather coverage and storm chasing in West Georgia.</p>
-                <img src="https://imgur.com/o7lVbCO.jpg" alt="TwistcasterLive Media" style="max-width: 100%; margin: 20px auto; display: block;">
+    <main>
 
-                <div class="counties-section">
-                    <h2>Counties We Serve</h2>
-                    <div>
+        <!-- ============ Home ============ -->
+        <div id="tab-home" class="tab-content">
+            <section class="hero" style="--bg: url('img/hero-supercell.webp')">
+                <div class="hero-inner">
+                    <h1 class="hero-title">TwistcasterLive Media</h1>
+                    <p class="hero-sub">Weather coverage &amp; storm chasing</p>
+                    <span class="hero-rule" aria-hidden="true"></span>
+                    <ul class="socials">
+                        <li><a href="https://x.com/EATWISTCASTER1" target="_blank" rel="noopener" aria-label="X"><svg><use href="#i-x"/></svg></a></li>
+                        <li><a href="https://www.facebook.com/TwistcasterLiveMedia/?rdid=NLubQtzaQOiOPI91" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+                        <li><a href="https://rumble.com/c/c-7769172" target="_blank" rel="noopener" aria-label="Rumble"><svg><use href="#i-rumble"/></svg></a></li>
+                        <li><a href="https://discord.gg/RqgMYZhv" target="_blank" rel="noopener" aria-label="Discord"><svg><use href="#i-discord"/></svg></a></li>
+                    </ul>
+                    <p class="hero-note">For breaking weather updates, follow us on social media.</p>
+                </div>
+            </section>
+
+            <section class="mission">
+                <div class="mission-inner">
+                    <div class="mission-copy">
+                        <h2 class="serif">Our Mission</h2>
+                        <p>TwistcasterLive Media is your trusted source for weather coverage and storm chasing in West Georgia and East Alabama. We are dedicated to improving storm tracking capabilities and ensuring the safety of our storm chasing team while gathering crucial weather data for the communities we cover.</p>
+                        <a class="btn" href="#team">Meet the team</a>
+                    </div>
+                    <figure class="mission-photo">
+                        <img src="img/tornado.webp" alt="A tornado touching down beneath a supercell" width="1816" height="1200" loading="lazy">
+                    </figure>
+                </div>
+                <div class="notch-rule" aria-hidden="true"></div>
+            </section>
+
+            <section class="strip" style="--bg: url('img/plains-tornado.webp')">
+                <ul class="strip-photos">
+                    <li><img src="img/field-1.webp" alt="Tornado over farmland" width="960" height="640" loading="lazy"></li>
+                    <li><img src="img/field-2.webp" alt="Lightning over a city at night" width="960" height="640" loading="lazy"></li>
+                    <li><img src="img/field-3.webp" alt="Supercell at dusk" width="960" height="640" loading="lazy"></li>
+                    <li><img src="img/field-4.webp" alt="Wall cloud with lightning" width="960" height="624" loading="lazy"></li>
+                </ul>
+            </section>
+
+            <section class="dark-section">
+                <div class="wrap">
+                    <h2 class="serif center">Counties We Serve</h2>
+                    <div class="counties">
                         <div>
-                            <h3>Georgia Counties:</h3>
+                            <h3 class="caps">Georgia</h3>
                             <ul>
                                 <li>Carroll County</li>
                                 <li>Heard County</li>
@@ -234,7 +120,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h3>Alabama Counties:</h3>
+                            <h3 class="caps">Alabama</h3>
                             <ul>
                                 <li>Clay County</li>
                                 <li>Calhoun County</li>
@@ -244,439 +130,354 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Add social media footer -->
-            <div class="social-media-footer">
-                <h3>Follow Us On Social Media</h3>
-                <div class="social-links-grid">
-                    <a href="https://discord.gg/RqgMYZhv" target="_blank" class="social-link">
-                        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord">
-                        <span>Discord</span>
-                    </a>
-                    <a href="https://www.youtube.com/@EATCLM1" target="_blank" class="social-link">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/120px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://www.facebook.com/TwistcasterLiveMedia/?rdid=NLubQtzaQOiOPI91" target="_blank" class="social-link">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/120px-Facebook_Logo_%282019%29.png" alt="Facebook">
-                        <span>Facebook</span>
-                    </a>
-                    <a href="https://x.com/EATWISTCASTER1" target="_blank" class="social-link">
-                        <img src="https://imgur.com/o7lVbCO.jpg" alt="X (Twitter)">
-                        <span>Twitter/X</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Radar Tab -->
-        <div id="radar" class="tab-content">
-            <div class="radar-head">
-                <div class="radar-head-text">
-                    <h2>Weather Radar</h2>
-                    <p>Live NEXRAD imagery, storm tracking, and active watches and warnings. Sign in below with your free Vortex Radar account.</p>
-                </div>
-                <a class="btn radar-fullscreen" href="https://radar.twistcasterlivemedia.com/" target="_blank" rel="noopener noreferrer">
-                    Open Full Screen <span aria-hidden="true">↗</span>
-                </a>
-            </div>
-            <div class="radar-container">
-                <iframe
-                    src="https://radar.twistcasterlivemedia.com/"
-                    title="TwistcasterLive Radar"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; display: block;"
-                    frameborder="0"
-                    allow="geolocation; fullscreen"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-
-        <!-- Vortex Radar Tab -->
-        <div id="vortex" class="tab-content">
-            <div class="center-content">
-                <div class="vortex-hero">
-                    <span class="vortex-badge">⚡ Available on Windows</span>
-                    <div class="vortex-icon">🌀</div>
-                    <h2>Vortex Radar</h2>
-                    <p>
-                        Our free Windows app delivers real-time weather radar, storm tracking,
-                        and severe-weather alerts right to your desktop. Built for storm chasers
-                        and weather watchers across West Georgia and beyond.
-                    </p>
-
-                    <a class="btn btn-primary" href="https://apps.microsoft.com/detail/9NBFQ0C936T0?hl=en-us&gl=US&ocid=pdpshare" target="_blank" rel="noopener noreferrer">
-                        ⊞ Get it on the Microsoft Store
-                    </a>
-
-                    <div class="vortex-features">
-                        <div class="vortex-feature">
-                            <div class="vf-icon">📡</div>
-                            <strong>Live Radar</strong>
-                            <span>High-resolution, real-time radar imagery.</span>
-                        </div>
-                        <div class="vortex-feature">
-                            <div class="vf-icon">🚨</div>
-                            <strong>Severe Alerts</strong>
-                            <span>Watches and warnings the moment they issue.</span>
-                        </div>
-                        <div class="vortex-feature">
-                            <div class="vf-icon">🌪️</div>
-                            <strong>Storm Tracking</strong>
-                            <span>Follow cells and outlooks as they develop.</span>
-                        </div>
+                    <div class="center">
+                        <a class="btn" href="#stream">Watch live</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
 
-        <!-- Live Stream Tab -->
-        <div id="stream" class="tab-content">
-            <h2>Live Stream</h2>
-            <div class="stream-container" style="position: relative; padding-bottom: 56.25%; height: 0;">
-                <iframe
-                    src="https://www.youtube.com/embed/live_stream?channel=UCQvEZ1q0pS4YoaPWGS8DHeg&autoplay=1"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <h3 style="margin-top: 30px;">Rumble Channel</h3>
-            <div style="margin-top: 15px; text-align: center;">
-                <a href="https://rumble.com/c/c-7769172" target="_blank"
-                   style="display: inline-block; padding: 15px 25px; background-color: #85c742;
-                   color: white; text-decoration: none; font-weight: bold; border-radius: 5px;
-                   font-size: 18px;">
-                    Watch on Rumble
-                </a>
-                <p style="margin-top: 10px;">Click to view our Rumble channel for additional weather coverage</p>
-            </div>
+        <!-- ============ Watch Live ============ -->
+        <div id="tab-stream" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/lightning.webp')">
+                <h1 class="hero-title">Watch Live</h1>
+                <p class="hero-sub">Live from the field</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap narrow center">
+                    <h2 class="serif">Live Storm Coverage</h2>
+                    <p class="lead">When severe weather hits West Georgia and East Alabama, our team goes live. Catch the stream and past coverage on our Rumble channel.</p>
+                    <a class="btn" href="https://rumble.com/c/c-7769172" target="_blank" rel="noopener">Watch on Rumble</a>
+                    <div class="notch-rule inline" aria-hidden="true"></div>
+                    <p class="caps muted">Breaking updates</p>
+                    <ul class="socials small">
+                        <li><a href="https://x.com/EATWISTCASTER1" target="_blank" rel="noopener" aria-label="X"><svg><use href="#i-x"/></svg></a></li>
+                        <li><a href="https://www.facebook.com/TwistcasterLiveMedia/?rdid=NLubQtzaQOiOPI91" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+                        <li><a href="https://discord.gg/RqgMYZhv" target="_blank" rel="noopener" aria-label="Discord"><svg><use href="#i-discord"/></svg></a></li>
+                    </ul>
+                </div>
+            </section>
         </div>
 
-        <!-- Team Tab -->
-        <div id="team" class="tab-content">
-            <div class="center-content">
-                <h2>Our Weather Team</h2>
-                <div class="team-grid">
-                    <!-- Leadership -->
-                    <div class="team-member">
-                        <h3>Nathan Bradley</h3>
-                        <p><strong>Founder</strong></p>
-                        <p>Founder / Storm Tracker</p>
+        <!-- ============ Vortex Radar ============ -->
+        <div id="tab-vortex" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/supercell-dusk.webp')">
+                <h1 class="hero-title">Vortex Radar</h1>
+                <p class="hero-sub">Free for Windows</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap split">
+                    <div>
+                        <h2 class="serif">Radar on Your Desktop</h2>
+                        <p class="lead">Our free Windows app delivers real-time weather radar, storm tracking, and severe-weather alerts right to your desktop. Built for storm chasers and weather watchers across West Georgia and beyond.</p>
+                        <a class="btn" href="https://apps.microsoft.com/detail/9NBFQ0C936T0?hl=en-us&gl=US&ocid=pdpshare" target="_blank" rel="noopener noreferrer">Get it on the Microsoft Store</a>
                     </div>
-                    <div class="team-member">
-                        <h3>David Wallis</h3>
-                        <p><strong>President</strong></p>
-                        <p>Social Media Manager / Coding Specialist</p>
+                    <ol class="features">
+                        <li><strong>Live Radar</strong><span>High-resolution, real-time radar imagery.</span></li>
+                        <li><strong>Severe Alerts</strong><span>Watches and warnings the moment they issue.</span></li>
+                        <li><strong>Storm Tracking</strong><span>Follow cells and outlooks as they develop.</span></li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ Team ============ -->
+        <div id="tab-team" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/tornado.webp')">
+                <h1 class="hero-title">Our Weather Team</h1>
+                <p class="hero-sub">The people behind the coverage</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <h2 class="caps section-label">Leadership</h2>
+                    <ul class="cards">
+                        <li class="card"><strong class="serif">Nathan Bradley</strong><span class="caps tan">Founder</span><span>Founder / Storm Tracker</span></li>
+                        <li class="card"><strong class="serif">David Wallis</strong><span class="caps tan">President</span><span>Social Media Manager / Coding Specialist</span></li>
+                        <li class="card"><strong class="serif">Nick Carter</strong><span class="caps tan">Lead Storm Chaser</span><span>Field Operations</span></li>
+                        <li class="card"><strong class="serif">Joseph Pisani</strong><span class="caps tan">Storm Tracker</span><span>Lead Meteorologist</span></li>
+                    </ul>
+
+                    <h2 class="caps section-label">Storm Chasers</h2>
+                    <ul class="cards">
+                        <li class="card"><strong class="serif">Mandy Jenes</strong><span>Storm Chaser — TCL Media</span></li>
+                        <li class="card"><strong class="serif">Jesse Perkins</strong><span>Storm Chaser — TCL Media</span></li>
+                        <li class="card"><strong class="serif">Michael Lynn</strong><span>Storm Chaser — TCL Media</span></li>
+                        <li class="card"><strong class="serif">Cody Knox</strong><span>Storm Chaser — TCL Media</span></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ Sponsors ============ -->
+        <div id="tab-sponsors" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/plains-tornado.webp')">
+                <h1 class="hero-title">Our Partners</h1>
+                <p class="hero-sub">Thank you for your support</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <ul class="cards sponsors">
+                        <li>
+                            <a class="card sponsor" href="https://www.miops.com/" target="_blank" rel="noopener">
+                                <span class="sponsor-logo"><img src="https://i.imgur.com/DAYfgLW.jpg" alt="MIOPS" loading="lazy"></span>
+                                <strong class="serif">MIOPS</strong>
+                                <span>Lightning Trigger Partner</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="card sponsor" href="https://www.facebook.com/share/1AEn6WE2TK/" target="_blank" rel="noopener">
+                                <span class="sponsor-logo"><img src="https://i.imgur.com/jpmhP0i.jpg" alt="By His Grace" loading="lazy"></span>
+                                <strong class="serif">By His Grace</strong>
+                                <span>Faith Based Partnership</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="card sponsor" href="https://www.tiktok.com/@globalptt?_r=1&_t=ZP-92uLt6rrOpy" target="_blank" rel="noopener">
+                                <span class="sponsor-logo on-dark"><img src="https://i.imgur.com/Xpwx3iq.png" alt="Global Ptt" loading="lazy"></span>
+                                <strong class="serif">Global Ptt</strong>
+                                <span>Communications Partner</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ Past Sponsors ============ -->
+        <div id="tab-past-sponsors" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/field-3.webp')">
+                <h1 class="hero-title">Past Partners</h1>
+                <p class="hero-sub">We're grateful for their support</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <ul class="cards">
+                        <li class="card"><strong class="serif">Hubsan Drones</strong><span>Drone Equipment Partner</span></li>
+                        <li class="card"><strong class="serif">GoPro</strong><span>Action Camera Partner</span></li>
+                        <li class="card"><strong class="serif">Rapid Radios</strong><span>Communications Partner</span></li>
+                        <li class="card"><strong class="serif">Talk2Me Radios</strong><span>Communications Equipment</span></li>
+                        <li class="card"><strong class="serif">Ecowitt Weather Station</strong><span>Weather Station Partner</span></li>
+                        <li class="card"><strong class="serif">B&amp;B Lawncare</strong><span>Local Business Partner</span></li>
+                        <li class="card"><strong class="serif">Dude Wipes</strong><span>Wipe Company Partner</span></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ VD Project ============ -->
+        <div id="tab-faithcast" class="tab-content">
+            <header class="page-hero" style="--bg: url('img/field-4.webp')">
+                <h1 class="hero-title">VD Project</h1>
+                <p class="hero-sub">Vortex Dome · Research &amp; development</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap split">
+                    <div>
+                        <h2 class="serif">The Vortex Dome</h2>
+                        <p class="lead">Our long-running effort to advance storm chasing technology and safety — purpose-built hardware, live data collection, and real-time monitoring from inside the storm.</p>
                     </div>
-                    <div class="team-member">
-                        <h3>Nick Carter</h3>
-                        <p><strong>Lead Storm Chaser</strong></p>
-                        <p>Field Operations</p>
+                    <figure class="framed">
+                        <img src="https://i.imgur.com/EGmhxpD.jpg" alt="The Vortex Dome storm chasing platform" loading="lazy">
+                        <figcaption>The Vortex Dome — our storm chasing and data collection platform.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="wrap">
+                    <h2 class="caps section-label">Project Focus</h2>
+                    <ol class="features grid">
+                        <li><strong>Advanced Storm Tracking</strong><span>Systems that keep us positioned on the storm, not chasing behind it.</span></li>
+                        <li><strong>Weather Data Collection</strong><span>Field measurements gathered where fixed stations can't reach.</span></li>
+                        <li><strong>Chaser Safety Innovations</strong><span>Hardening the platform so the team can work closer, safely.</span></li>
+                        <li><strong>Real-Time Monitoring</strong><span>Live telemetry streamed back while the storm is still on the ground.</span></li>
+                    </ol>
+
+                    <blockquote class="quote">
+                        <p>“We are dedicated to improving storm tracking capabilities and ensuring the safety of our storm chasing team while gathering crucial weather data for the communities we cover.”</p>
+                        <cite class="caps">Our mission</cite>
+                    </blockquote>
+
+                    <p class="center muted">Stay tuned for updates on our latest storm chasing missions and technological developments.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ West Georgia Outdoorsmen ============ -->
+        <div id="tab-outdoorsmen" class="tab-content">
+            <header class="page-hero">
+                <h1 class="hero-title">WG Outdoorsmen</h1>
+                <p class="hero-sub">Hunting &amp; outdoor content</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <p class="lead center narrow">West Georgia Outdoorsmen is a Hunting Channel dedicated to providing authentic outdoor content and hunting expertise.</p>
+
+                    <ul class="cards">
+                        <li class="card">
+                            <strong class="serif">NiteLife Coon Hunting</strong>
+                            <span class="caps tan">Host: Bro. Daniel Buchanan</span>
+                            <span>Coon Dog: <em>name, age &amp; sex to be added</em></span>
+                            <span>Special guest list coming soon</span>
+                        </li>
+                        <li class="card">
+                            <strong class="serif">Deer Hunter</strong>
+                            <span class="caps tan">Host coming soon</span>
+                            <span>Tips, tricks &amp; reviews</span>
+                        </li>
+                        <li class="card">
+                            <strong class="serif">Turkey Hunting</strong>
+                            <span class="caps tan">Host coming soon</span>
+                            <span>Tips, tricks &amp; reviews</span>
+                        </li>
+                        <li class="card">
+                            <strong class="serif">Fishing Adventures</strong>
+                            <span class="caps tan">Host coming soon</span>
+                            <span>Tips, tricks &amp; reviews</span>
+                        </li>
+                    </ul>
+
+                    <div class="panel">
+                        <h3 class="serif">Sponsorship Opportunities</h3>
+                        <p><strong>Product owners:</strong> if you're interested in providing equipment, please contact us.</p>
+                        <p><strong>All sponsors:</strong> for more information on sponsorship opportunities, please contact us.</p>
+                        <p class="muted">Contact information coming soon.</p>
                     </div>
-                    <div class="team-member">
-                        <h3>Joseph Pisani</h3>
-                        <p><strong>Storm Tracker</strong></p>
-                        <p>Lead Meteorologist</p>
-                    </div>
-                    <!-- Storm Chasers -->
-                    <div class="team-member">
-                        <h3>Mandy Jenes</h3>
-                        <p>Storm Chaser - TCL Media</p>
-                    </div>
-                    <div class="team-member">
-                        <h3>Jesse Perkins</h3>
-                        <p>Storm Chaser - TCL Media</p>
-                    </div>
-                    <div class="team-member">
-                        <h3>Michael Lynn</h3>
-                        <p>Storm Chaser - TCL Media</p>
-                    </div>
-                    <div class="team-member">
-                        <h3>Cody Knox</h3>
-                        <p>Storm Chaser - TCL Media</p>
+
+                    <p class="center muted">We are in talks with other Christians to join our team. Stay tuned for more announcements!</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ Sports ============ -->
+        <div id="tab-sports" class="tab-content">
+            <header class="page-hero">
+                <h1 class="hero-title">Sports</h1>
+                <p class="hero-sub">Local scores</p>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <div class="scoreboard">
+                        <iframe src="https://scorestream.com/widgets/scoreboards/horz?userWidgetId=68232" title="scoreboardhome" scrolling="no"></iframe>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
 
-        <!-- Add Sponsors Tab -->
-        <div id="sponsors" class="tab-content">
-            <div class="center-content">
-                <h2>Our Valued Partners</h2>
-                <div class="sponsor-grid">
-                    <a href="https://www.miops.com/" target="_blank" class="sponsor-card">
-                        <img src="https://imgur.com/DAYfgLW.jpg" alt="MIOPS">
-                        <h3>MIOPS</h3>
-                        <p>Lightning Trigger Partner</p>
-                    </a>
-                    <a href="https://www.facebook.com/share/1AEn6WE2TK/" target="_blank" class="sponsor-card">
-                        <img src="https://imgur.com/jpmhP0i.jpg" alt="By His Grace">
-                        <h3>By His Grace</h3>
-                        <p>Faith Based Partnership</p>
-                    </a>
-                    <a href="https://www.tiktok.com/@globalptt?_r=1&_t=ZP-92uLt6rrOpy" target="_blank" class="sponsor-card">
-                        <img src="https://imgur.com/Xpwx3iq.jpg" alt="Global Ptt">
-                        <h3>Global Ptt</h3>
-                        <p>Communications Partner</p>
-                    </a>
+        <!-- ============ New Year (re-enable by removing `hidden` here and on its menu item) ============ -->
+        <div id="tab-newyear" class="tab-content" hidden>
+            <header class="page-hero">
+                <h1 class="hero-title">New Year's Countdown</h1>
+            </header>
+            <section class="dark-section">
+                <div class="wrap">
+                    <div class="countdown" role="timer" aria-live="polite" aria-atomic="true">
+                        <div><span id="ny-days">0</span><small class="caps">Days</small></div>
+                        <div><span id="ny-hours">00</span><small class="caps">Hours</small></div>
+                        <div><span id="ny-mins">00</span><small class="caps">Minutes</small></div>
+                        <div><span id="ny-secs">00</span><small class="caps">Seconds</small></div>
+                    </div>
+                    <p id="ny-message" class="center lead"></p>
                 </div>
-            </div>
+            </section>
         </div>
+    </main>
 
-        <!-- Add Past Sponsors Tab before Faithcast Tab -->
-        <div id="past-sponsors" class="tab-content">
-            <div class="center-content">
-                <h2>Our Past Partners</h2>
-                <p style="margin-bottom: 30px;">We're grateful for the support of these previous partners</p>
-                <div class="sponsor-grid">
-                    <div class="sponsor-card">
-                        <h3>Hubsan Drones</h3>
-                        <p>Drone Equipment Partner</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>GoPro</h3>
-                        <p>Action Camera Partner</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>Rapid Radios</h3>
-                        <p>Communications Partner</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>Talk2Me Radios</h3>
-                        <p>Communications Equipment</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>Ecowitt Weather Station</h3>
-                        <p>Weather Station Partner</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>B&B Lawncare</h3>
-                        <p>Local Business Partner</p>
-                    </div>
-                    <div class="sponsor-card">
-                        <h3>Dude Wipes</h3>
-                        <p>Wipe Company Partner</p>
-                    </div>
-                </div>
-            </div>
+    <footer class="footer">
+        <div class="notch-rule" aria-hidden="true"></div>
+        <div class="footer-inner">
+            <img src="logo.webp" alt="TwistcasterLive Media Group" width="149" height="90" loading="lazy">
+            <p class="caps tan">Proud to be a NOAA Weather-Ready Nation Ambassador™</p>
+            <ul class="socials small">
+                <li><a href="https://x.com/EATWISTCASTER1" target="_blank" rel="noopener" aria-label="X"><svg><use href="#i-x"/></svg></a></li>
+                <li><a href="https://www.facebook.com/TwistcasterLiveMedia/?rdid=NLubQtzaQOiOPI91" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+                <li><a href="https://rumble.com/c/c-7769172" target="_blank" rel="noopener" aria-label="Rumble"><svg><use href="#i-rumble"/></svg></a></li>
+                <li><a href="https://discord.gg/RqgMYZhv" target="_blank" rel="noopener" aria-label="Discord"><svg><use href="#i-discord"/></svg></a></li>
+            </ul>
+            <p class="fine">© <span id="year">2026</span> TwistcasterLive Media — providing accurate and timely weather coverage to our communities. All rights reserved.</p>
+            <p class="fine">Storm photography: NOAA / National Severe Storms Laboratory (public domain).</p>
         </div>
+    </footer>
 
-        <!-- VD Project Tab -->
-        <div id="faithcast" class="tab-content">
-            <div class="vd-page">
-                <header class="vd-hero">
-                    <span class="vortex-badge">🌀 Research &amp; Development</span>
-                    <h2>VD Project — Vortex Dome</h2>
-                    <p>
-                        Our long-running effort to advance storm chasing technology and safety —
-                        purpose-built hardware, live data collection, and real-time monitoring
-                        from inside the storm.
-                    </p>
-                </header>
-
-                <figure class="vd-figure">
-                    <img src="https://imgur.com/EGmhxpD.jpg" alt="The Vortex Dome storm chasing platform in the field" loading="lazy">
-                    <figcaption>The Vortex Dome — our storm chasing and data collection platform.</figcaption>
-                </figure>
-
-                <section class="vd-section">
-                    <h3>Project Overview</h3>
-                    <div class="vd-video">
-                        <iframe
-                            src="https://www.youtube.com/embed/uXEJAkY0XQE"
-                            title="Vortex Dome project overview"
-                            frameborder="0"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </section>
-
-                <section class="vd-section">
-                    <h3>Project Focus</h3>
-                    <div class="vd-grid">
-                        <div class="vd-card">
-                            <div class="vd-card-icon">🌪️</div>
-                            <strong>Advanced Storm Tracking</strong>
-                            <span>Systems that keep us positioned on the storm, not chasing behind it.</span>
-                        </div>
-                        <div class="vd-card">
-                            <div class="vd-card-icon">📊</div>
-                            <strong>Weather Data Collection</strong>
-                            <span>Field measurements gathered where fixed stations can't reach.</span>
-                        </div>
-                        <div class="vd-card">
-                            <div class="vd-card-icon">🛡️</div>
-                            <strong>Chaser Safety Innovations</strong>
-                            <span>Hardening the platform so the team can work closer, safely.</span>
-                        </div>
-                        <div class="vd-card">
-                            <div class="vd-card-icon">📡</div>
-                            <strong>Real-Time Monitoring</strong>
-                            <span>Live telemetry streamed back while the storm is still on the ground.</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="vd-mission">
-                    <h3>Our Mission</h3>
-                    <p>
-                        We are dedicated to improving storm tracking capabilities and ensuring the
-                        safety of our storm chasing team while gathering crucial weather data for
-                        the communities we cover.
-                    </p>
-                </section>
-
-                <section class="vd-section vd-follow">
-                    <h3>Follow Our Progress</h3>
-                    <p>Stay tuned for updates on our latest storm chasing missions and technological developments.</p>
-                </section>
-            </div>
-        </div>
-
-        <!-- West Georgia Outdoorsmen Tab -->
-        <div id="outdoorsmen" class="tab-content">
-            <div class="center-content">
-                <h2>West Georgia Outdoorsmen</h2>
-                <div style="max-width: 800px; margin: 0 auto; padding: 20px; text-align: left;">
-                    <p style="font-size: 18px; line-height: 1.6;">
-                        West Georgia Outdoorsmen is a Hunting Channel dedicated to providing authentic outdoor content and hunting expertise.
-                    </p>
-
-                    <div style="background: var(--surface-2); padding: 25px; border-radius: 14px; margin-top: 30px; color: var(--text); border: 1px solid var(--border);">
-                        <h3 style="text-align: center; margin-bottom: 20px;">NiteLife Coon Hunting</h3>
-                        <p style="font-size: 18px; line-height: 1.6; text-align: center;">
-                            <strong>Host:</strong> Bro. Daniel Buchanan
-                        </p>
-                        <p style="font-size: 16px; line-height: 1.6;">
-                            <strong>Coon Dog:</strong> <em>[name/age & sex to be added]</em>
-                        </p>
-                        <h4 style="margin-top: 15px;">Special Guest List</h4>
-                        <p style="font-style: italic;">Coming soon...</p>
-                    </div>
-
-                    <div style="background: var(--surface-2); padding: 25px; border-radius: 14px; margin-top: 30px; color: var(--text); border: 1px solid var(--border);">
-                        <h3 style="text-align: center; margin-bottom: 20px;">Deer Hunter</h3>
-                        <p style="font-size: 16px; line-height: 1.6; text-align: center;">
-                            <em>Tips, tricks & reviews</em>
-                        </p>
-                        <p style="font-size: 18px; line-height: 1.6; text-align: center;">
-                            <strong>Hosted By:</strong> <em>[Coming Soon]</em>
-                        </p>
-                    </div>
-
-                    <div style="background: var(--surface-2); padding: 25px; border-radius: 14px; margin-top: 30px; color: var(--text); border: 1px solid var(--border);">
-                        <h3 style="text-align: center; margin-bottom: 20px;">Turkey Hunting</h3>
-                        <p style="font-size: 16px; line-height: 1.6; text-align: center;">
-                            <em>Tips, tricks & reviews</em>
-                        </p>
-                        <p style="font-size: 18px; line-height: 1.6; text-align: center;">
-                            <strong>Hosted By:</strong> <em>[Coming Soon]</em>
-                        </p>
-                    </div>
-
-                    <div style="background: var(--surface-2); padding: 25px; border-radius: 14px; margin-top: 30px; color: var(--text); border: 1px solid var(--border);">
-                        <h3 style="text-align: center; margin-bottom: 20px;">Fishing Adventures</h3>
-                        <p style="font-size: 16px; line-height: 1.6; text-align: center;">
-                            <em>Tips, tricks & reviews</em>
-                        </p>
-                        <p style="font-size: 18px; line-height: 1.6; text-align: center;">
-                            <strong>Hosted By:</strong> <em>[Coming Soon]</em>
-                        </p>
-                    </div>
-
-                    <div style="margin-top: 40px; background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(77,141,255,0.10)); padding: 25px; border-radius: 14px; color: var(--text); border: 1px solid rgba(124,92,255,0.3);">
-                        <h3 style="text-align: center; margin-bottom: 20px; color: var(--text);">Sponsorship Opportunities</h3>
-                        <p style="font-size: 16px; line-height: 1.6;">
-                            <strong>Product Owners:</strong> If you're interested in providing equipment, please contact us.
-                        </p>
-                        <p style="font-size: 16px; line-height: 1.6;">
-                            <strong>All Sponsors:</strong> For more information on sponsorship opportunities, please contact us.
-                        </p>
-                        <p style="font-size: 16px; line-height: 1.6; font-style: italic; text-align: center; margin-top: 15px;">
-                            Contact information coming soon
-                        </p>
-                    </div>
-
-                    <p style="font-size: 18px; line-height: 1.6; margin-top: 30px; text-align: center;">
-                        We are in talks with other Christians to join our team. Stay tuned for more announcements!
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sports Tab -->
-        <div id="sports" class="tab-content">
-            <div class="center-content">
-                <h2>Sports</h2>
-                <iframe src="https://scorestream.com/widgets/scoreboards/horz?userWidgetId=68232" style="padding:0px;border:0px;width:100%;max-width:100%;height:100%;max-height:100%;" title="scoreboardhome" scrolling="no" frameborder="0"></iframe>
-            </div>
-        </div>
-
-        <!-- New Year's Counter Tab -->
-        <div id="newyear" class="tab-content" style="display:none;">
-            <div class="center-content">
-                <h2>New Year's Countdown</h2>
-                <div class="newyear-wrapper" aria-live="polite">
-                    <div class="countdown-display" role="timer" aria-atomic="true">
-                        <div class="count-item"><span id="ny-days">0</span><small>Days</small></div>
-                        <div class="count-item"><span id="ny-hours">0</span><small>Hours</small></div>
-                        <div class="count-item"><span id="ny-mins">0</span><small>Minutes</small></div>
-                        <div class="count-item"><span id="ny-secs">0</span><small>Seconds</small></div>
-                    </div>
-                    <p id="ny-message" style="margin-top:20px; font-size:18px;"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Single footer section -->
-    <div class="ambassador-section" style="text-align: center;">
-        <img src="https://imgur.com/o7lVbCO.jpg" alt="TwistcasterLive Media Logo" style="max-width: 300px; margin: 0 auto; display: block;">
-        <p>We are proud to be a NOAA Weather-Ready Nation Ambassador™</p>
-        <p class="copyright">© 2025 TwistcasterLive Media - Providing accurate and timely weather coverage to our communities. All rights reserved.</p>
-    </div>
-
-    <!-- Scripts -->
-    <script src="script.js" defer></script>
-    <script src="weather.js" defer></script>
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_SITE_ID"}'></script>
     <script>
-        function loadScoreStreamWidget() {
-            const scriptSrc = "https://scorestream.com/apiJsCdn/widgets/embed.js";
-            document.querySelectorAll(`script[src="${scriptSrc}"]`).forEach(script => script.remove());
-            const script = document.createElement("script");
-            script.async = true;
-            script.type = "text/javascript";
-            script.src = scriptSrc;
-            document.body.appendChild(script);
-        }
+        (function () {
+            const panels = document.querySelectorAll('.tab-content');
+            const topbar = document.querySelector('.topbar');
+            const toggle = document.querySelector('.nav-toggle');
+            const menus = document.querySelectorAll('.has-menu');
+            let scoreStreamLoaded = false;
 
-        // Tab functionality
-        document.querySelectorAll('.tab-link').forEach(button => {
-            button.addEventListener('click', () => {
-                const tabContent = document.querySelector(`#${button.dataset.tab}`);
+            function loadScoreStreamWidget() {
+                if (scoreStreamLoaded) return;
+                scoreStreamLoaded = true;
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://scorestream.com/apiJsCdn/widgets/embed.js';
+                document.body.appendChild(script);
+            }
 
-                // Remove active class from all tab links and contents
-                document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            function closeMenus() {
+                menus.forEach(m => {
+                    m.classList.remove('open');
+                    m.querySelector('button').setAttribute('aria-expanded', 'false');
+                });
+            }
 
-                // Add active class to the clicked tab link and corresponding content
-                button.classList.add('active');
-                tabContent.classList.add('active');
+            function closeNav() {
+                topbar.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
 
-                if (button.dataset.tab === "sports") {
-                    loadScoreStreamWidget();
-                }
+            function show(name) {
+                let panel = document.getElementById('tab-' + name);
+                if (!panel || panel.hidden) { name = 'home'; panel = document.getElementById('tab-home'); }
+
+                panels.forEach(p => p.classList.toggle('active', p === panel));
+
+                document.querySelectorAll('.nav a[href^="#"]').forEach(a => {
+                    const on = a.getAttribute('href') === '#' + name;
+                    a.classList.toggle('active', on);
+                    if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+                });
+                menus.forEach(m => {
+                    m.querySelector('button').classList.toggle('active', !!m.querySelector('a.active'));
+                });
+
+                if (name === 'sports') loadScoreStreamWidget();
+            }
+
+            menus.forEach(m => {
+                const btn = m.querySelector('button');
+                btn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    const open = !m.classList.contains('open');
+                    closeMenus();
+                    m.classList.toggle('open', open);
+                    btn.setAttribute('aria-expanded', String(open));
+                });
             });
-        });
 
-        // New Year countdown script
-        (function() {
+            toggle.addEventListener('click', () => {
+                const open = !topbar.classList.contains('nav-open');
+                topbar.classList.toggle('nav-open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+            });
+
+            document.addEventListener('click', closeMenus);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMenus(); closeNav(); } });
+
+            window.addEventListener('hashchange', () => {
+                closeMenus();
+                closeNav();
+                show(location.hash.slice(1));
+                window.scrollTo(0, 0);
+            });
+
+            show(location.hash.slice(1) || 'home');
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+
+        // New Year countdown (only runs while the tab is enabled)
+        (function () {
+            if (document.getElementById('tab-newyear').hidden) return;
             const elDays = document.getElementById('ny-days');
             const elHours = document.getElementById('ny-hours');
             const elMins = document.getElementById('ny-mins');
@@ -694,12 +495,9 @@
                 const now = new Date();
                 let diff = target - now;
                 if (diff <= 0) {
-                    // Celebrate and roll target to next year
-                    msg.textContent = "🎉 Happy New Year! 🎉";
+                    msg.textContent = 'Happy New Year!';
                     target = nextJan1();
                     diff = target - now;
-                } else {
-                    msg.textContent = "";
                 }
                 const secs = Math.floor(diff / 1000) % 60;
                 const mins = Math.floor(diff / (1000 * 60)) % 60;
