@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TwistcasterLive Media — West Georgia &amp; East Alabama Weather</title>
-    <meta name="description" content="Weather coverage and storm chasing across West Georgia and East Alabama. Live coverage, the Vortex Radar app, and severe weather updates from TwistcasterLive Media.">
+    <meta name="description" content="Weather coverage and storm chasing across West Georgia and East Alabama. Live coverage, the Echo Radar app, and severe weather updates from TwistcasterLive Media.">
     <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -40,7 +40,7 @@
                 <ul class="nav-list">
                     <li><a class="nav-link" href="#home">Home</a></li>
                     <li><a class="nav-link" href="#stream">Watch Live</a></li>
-                    <li><a class="nav-link" href="#vortex">Vortex Radar</a></li>
+                    <li><a class="nav-link" href="#echo-radar">Echo Radar</a></li>
                     <li><a class="nav-link" href="#team">Team</a></li>
                     <li class="has-menu">
                         <button class="nav-link" aria-expanded="false">Sponsors<span class="caret" aria-hidden="true"></span></button>
@@ -159,10 +159,10 @@
             </section>
         </div>
 
-        <!-- ============ Vortex Radar ============ -->
-        <div id="tab-vortex" class="tab-content">
+        <!-- ============ Echo Radar ============ -->
+        <div id="tab-echo-radar" class="tab-content">
             <header class="page-hero" style="--bg: url('img/supercell-dusk.webp')">
-                <h1 class="hero-title">Vortex Radar</h1>
+                <h1 class="hero-title">Echo Radar</h1>
                 <p class="hero-sub">Free for Windows</p>
             </header>
             <section class="dark-section">
@@ -426,7 +426,11 @@
                 toggle.setAttribute('aria-expanded', 'false');
             }
 
+            // Old links used #vortex before the app was renamed
+            const aliases = { vortex: 'echo-radar' };
+
             function show(name) {
+                name = aliases[name] || name;
                 let panel = document.getElementById('tab-' + name);
                 if (!panel || panel.hidden) { name = 'home'; panel = document.getElementById('tab-home'); }
 
